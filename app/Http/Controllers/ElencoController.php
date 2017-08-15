@@ -3,6 +3,7 @@
 namespace sistemaLaravel\Http\Controllers;
 
 use Illuminate\Http\Request;
+use sistemaLaravel\Academia;
 use sistemaLaravel\Elenco;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
@@ -26,8 +27,8 @@ class ElencoController extends Controller
     		 'fe.DT_NASCIMENTO', 'fa.ACADEMIA as festival_academia', 'fe.RG',
     		 'fe.RG_ANEXO', 'fe.CPF_ANEXO', 'fe.FOTO_ANEXO')
     		->where('fe.NOME', 'LIKE', '%'.$query.'%')
-    		->orderBy('ID', 'desc')
-    		->paginate(7);
+    		->orderBy('ID', 'asc')
+    		->paginate(10);
     		return view('festival.elenco.index', [
     			"elenco"=>$elencos, "searchText"=>$query
     			]);
@@ -41,19 +42,29 @@ class ElencoController extends Controller
  
     public function store(ElencoFormRequest $request){
     	$elenco = new Elenco;
-    	$elenco->ID=$request->get('ID');
+
     	$elenco->ID_ACADEMIA=$request->get('ID_ACADEMIA');
     	$elenco->NOME=$request->get('NOME');
     	$elenco->DT_NASCIMENTO=$request->get('DT_NASCIMENTO');
     	$elenco->RG=$request->get('RG');
-    	$elenco->RG_ANEXO='RG_ANEXO';
-    	
-    	if(Input::hasFile('imagem')){
-    		$file=Input::file('imagem');
+        if(Input::hasFile('RG_ANEXO')){
+            $file=Input::file('RG_ANEXO');
+            $file->move(public_path().'/imagens/elencos/',
+                $file->getClientOriginalName());
+            $elenco->RG_ANEXO=$file->getClientOriginalName();
+        }
+    	if(Input::hasFile('CPF_ANEXO')){
+    		$file=Input::file('CPF_ANEXO');
     		$file->move(public_path().'/imagens/elencos/',
     			$file->getClientOriginalName());
-    		$elenco->imagem=$file->getClientOriginalName();
+    		$elenco->CPF_ANEXO=$file->getClientOriginalName();
     	}
+        if(Input::hasFile('FOTO_ANEXO')){
+            $file=Input::file('FOTO_ANEXO');
+            $file->move(public_path().'/imagens/elencos/',
+                $file->getClientOriginalName());
+            $elenco->FOTO_ANEXO=$file->getClientOriginalName();
+        }
     	
     	$elenco->save();
     	return Redirect::to('festival/elenco');
@@ -65,24 +76,38 @@ class ElencoController extends Controller
     }
 
     public function edit($id){
+        $elenco = Elenco::findOrFail($id);
+        $academias = Academia::all();
 
-
+        return view("festival.elenco.edit",
+            ["elenco"=>$elenco, "academias"=>$academias]);
     }
 
     public function update(ElencoFormRequest $request, $id){
     	$elenco=Elenco::findOrFail($id);
-    	
-    	$elenco->idcategoria=$request->get('idcategoria');
-    	$elenco->codigo=$request->get('codigo');
-    	$elenco->nome=$request->get('nome');
-    	
-    	
-    	if(Input::hasFile('imagem')){
-    		$file=Input::file('imagem');
-    		$file->move(public_path().'/imagens/elencos/',
-    			$file->getClientOriginalName());
-    		$elenco->imagem=$file->getClientOriginalName();
-    	}
+
+        $elenco->ID_ACADEMIA=$request->get('ID_ACADEMIA');
+        $elenco->NOME=$request->get('NOME');
+        $elenco->DT_NASCIMENTO=$request->get('DT_NASCIMENTO');
+        $elenco->RG=$request->get('RG');
+        if(Input::hasFile('RG_ANEXO')){
+            $file=Input::file('RG_ANEXO');
+            $file->move(public_path().'/imagens/elencos/',
+                $file->getClientOriginalName());
+            $elenco->RG_ANEXO=$file->getClientOriginalName();
+        }
+        if(Input::hasFile('CPF_ANEXO')){
+            $file=Input::file('CPF_ANEXO');
+            $file->move(public_path().'/imagens/elencos/',
+                $file->getClientOriginalName());
+            $elenco->CPF_ANEXO=$file->getClientOriginalName();
+        }
+        if(Input::hasFile('FOTO_ANEXO')){
+            $file=Input::file('FOTO_ANEXO');
+            $file->move(public_path().'/imagens/elencos/',
+                $file->getClientOriginalName());
+            $elenco->FOTO_ANEXO=$file->getClientOriginalName();
+        }
 
     	$elenco->update();
     	return Redirect::to('festival/elenco');
@@ -90,8 +115,8 @@ class ElencoController extends Controller
 
     public function destroy($id){
     	$elenco=Elenco::findOrFail($id);
-    	$elenco->estado='Inativo';
-    	$elenco->update();
+
+    	$elenco->delete();
     	return Redirect::to('festival/elenco');
     }
 }

@@ -48,7 +48,7 @@
 					<td>{{ $aca->CELULAR}}</td>
 					<td>{{ $aca->COMPROVANTE}}</td>
 					<td>{{ $aca->PAGO}}</td>
-					<td>{{ $aca->CPF}}</td>
+
 					<td>{{ $aca->COMPROVANTECPF}}</td>
 
 

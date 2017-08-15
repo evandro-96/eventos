@@ -24,12 +24,12 @@ class ElencoFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'idcategoria'=>'required',
-            'codigo'=>'required|max:50',
-            'nome'=>'required|max:50',
-            'elenco'=>'required|numeric',
-            'descricao'=>'required|max:512',
-            'imagem'=>'mimes:jpeg,bmp,png',
+            'ID'=>'required',
+            'ID_ACADEMIA'=>'required|max:50',
+            'NOME'=>'required|max:50',
+            'DT_NASCIMENTO'=>'required|max:10',
+            'RG'=>'required|max:512',
+            'RG_ANEXO'=>'mimes:jpeg,bmp,png',
 
 
         ];
