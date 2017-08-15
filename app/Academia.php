@@ -39,4 +39,9 @@ class Academia extends Model
     {
         return $this->hasMany('sistemaLaravel\Elenco', 'ID_ACADEMIA');
     }
+
+    public function coreografia()
+    {
+        return $this->hasMany('sistemaLaravel\Coreografia', 'id_academia');
+    }
 }

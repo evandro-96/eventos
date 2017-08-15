@@ -27,8 +27,9 @@ class ElencoController extends Controller
     		 'fe.DT_NASCIMENTO', 'fa.ACADEMIA as festival_academia', 'fe.RG',
     		 'fe.RG_ANEXO', 'fe.CPF_ANEXO', 'fe.FOTO_ANEXO')
     		->where('fe.NOME', 'LIKE', '%'.$query.'%')
+                ->orwhere('fa.ACADEMIA', 'LIKE', '%'.$query.'%')
     		->orderBy('ID', 'asc')
-    		->paginate(10);
+    		->paginate(25);
     		return view('festival.elenco.index', [
     			"elenco"=>$elencos, "searchText"=>$query
     			]);
