@@ -44,9 +44,9 @@
 					<td>{{ $core->coreografo}}</td>
 					<td>{{ $core->link_youtube}}</td>
 					<td>{{ $core->confirmada}}</td>
-					{{--<td>{{ $core->apresentacao}}</td>--}}
-					{{--<td>{{ $core->horaensaio}}</td>--}}
-					{{--<td>{{ $core->horaapresentacao}}</td>--}}
+					<td>{{ $core->apresentacao}}</td>
+					<td>{{ $core->horaensaio}}</td>
+					<td>{{ $core->horaapresentacao}}</td>
 					<td>
 						<a href="{{URL::action('CoreografiaController@edit',$core->id_inscricao)}}"><button class="btn btn-info">Editar</button></a>
 						<a href="" data-target="#modal-delete-{{$core->id_inscricao}}" data-toggle="modal"><button class="btn btn-danger">Excluir</button></a>

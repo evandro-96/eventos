@@ -37,8 +37,8 @@ class ElencoController extends Controller
     }
 
     public function create(){
-
-
+        $academias = Academia::all();
+        return view("festival.elenco.create",["academias"=>$academias]);
     }
  
     public function store(ElencoFormRequest $request){

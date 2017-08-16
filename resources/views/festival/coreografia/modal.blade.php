@@ -8,10 +8,10 @@ role="dialog" tabindex="-1" id="modal-delete-{{$core->id_inscricao}}">
 				aria-label="Close">
                      <span aria-hidden="true">×</span>
                 </button>
-                <h4 class="modal-title">Apagar Academia</h4>
+                <h4 class="modal-title">Apagar Coreografia</h4>
 			</div>
 			<div class="modal-body">
-				<p>Confirme se deseja apagar a Academia</p>
+				<p>Confirme se deseja apagar a Coreografia</p>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>

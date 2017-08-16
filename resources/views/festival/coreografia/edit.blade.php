@@ -3,7 +3,7 @@
 <div class="row">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 
-			<h3>Editar Academia: {{$academia->ACADEMIA }}</h3>
+			<h3>Editar Coreografia: {{$coreografia->nomecoreografia }}</h3>
 			@if (count($errors)>0)
 			<div class="alert alert-danger">
 				<ul>
@@ -14,122 +14,147 @@
 			</div>
 			@endif
 
-			{!!Form::model($academia, ['method'=>'PATCH', 'route'=>['academia.update', $academia->ID]])!!}
+			{!!Form::model($coreografia, ['method'=>'PATCH', 'route'=>['coreografia.update', $coreografia->id_inscricao]])!!}
 			{{Form::token()}}
 
-            <div class="form-group">
-            	<label for="ACADEMIA">Academia</label>
-            	<input type="text" name="ACADEMIA" class="form-control"
-            	value="{{ $academia->ACADEMIA }}"
-            	placeholder="Academia...">
-            </div>
-            <div class="form-group">
-            	<label for="NOMEDOGRUPO">Nome do grupo</label>
-            	<input type="text" name="NOMEDOGRUPO" class="form-control"
-            	value="{{ $academia->NOMEDOGRUPO }}"
-            	 placeholder="Nome do grupo...">
-            </div>
-			<div class="form-group">
-				<label for="ENDERECO">Endereço</label>
-				<input type="text" name="ENDERECO" class="form-control"
-					   value="{{ $academia->ENDERECO }}"
-					   placeholder="Endereço...">
-			</div>
-			<div class="form-group">
-				<label for="NUMERO">Número</label>
-				<input type="text" name="NUMERO" class="form-control"
-					   value="{{ $academia->NUMERO }}"
-					   placeholder="Número...">
-			</div>
-			<div class="form-group">
-				<label for="BAIRRO">Bairro</label>
-				<input type="text" name="BAIRRO" class="form-control"
-					   value="{{ $academia->BAIRRO }}"
-					   placeholder="Bairro...">
-			</div>
-			<div class="form-group">
-				<label for="CEP">Cep</label>
-				<input type="text" name="CEP" class="form-control"
-					   value="{{ $academia->CEP }}"
-					   placeholder="Cep...">
-			</div>
-			<div class="form-group">
-				<label for="PAIS">País</label>
-				<input type="text" name="PAIS" class="form-control"
-					   value="{{ $academia->PAIS }}"
-					   placeholder="Pais...">
-			</div>
-			<div class="form-group">
-				<label for="CIDADE">Cidade</label>
-				<input type="text" name="CIDADE" class="form-control"
-					   value="{{ $academia->CIDADE }}"
-					   placeholder="Cidade...">
-			</div>
-			<div class="form-group">
-				<label for="UF">Estado</label>
-				<input type="text" name="ESTADO" class="form-control"
-					   value="{{ $academia->ESTADO }}"
-					   placeholder="Estado...">
-			</div>
-			<div class="form-group">
-				<label for="EMAIL">Email</label>
-				<input type="text" name="EMAIL" class="form-control"
-					   value="{{ $academia->EMAIL }}"
-					   placeholder="Email...">
-			</div>
-			<div class="form-group">
-				<label for="TELEFONE">Telefone</label>
-				<input type="text" name="TELEFONE" class="form-control"
-					   value="{{ $academia->TELEFONE }}"
-					   placeholder="Teledone...">
-			</div>
-			<div class="form-group">
-				<label for="EMAIL">Email</label>
-				<input type="text" name="EMAIL" class="form-control"
-					   value="{{ $academia->EMAIL }}"
-					   placeholder="Email...">
-			</div>
-			<div class="form-group">
-				<label for="DIRETOR">Diretor</label>
-				<input type="text" name="DIRETOR" class="form-control"
-					   value="{{ $academia->DIRETOR }}"
-					   placeholder="Diretor...">
-			</div>
-			<div class="form-group">
-				<label for="CELULAR">Celular</label>
-				<input type="text" name="CELULAR" class="form-control"
-					   value="{{ $academia->CELULAR }}"
-					   placeholder="Celular...">
-			</div>
-			<div class="form-group">
-				<label for="COMPROVANTE">Comprovante</label>
-				<input type="text" name="COMPROVANTE" class="form-control"
-					   value="{{ $academia->COMPROVANTE }}"
-					   placeholder="Comprovante...">
-			</div>
-			<div class="form-group">
-				<label for="PAGO">Pago</label>
-				<input type="text" name="PAGO" class="form-control"
-					   value="{{ $academia->PAGO }}"
-					   placeholder="Pago...">
-			</div>
-			<div class="form-group">
-				<label for="CPF">Cpf</label>
-				<input type="text" name="CPF" class="form-control"
-					   value="{{ $academia->CPF }}"
-					   placeholder="Cpf...">
-			</div>
-			<div class="form-group">
-				<label for="COMPROVANTECPF">Comprovante Cpf</label>
-				<input type="text" name="COMPROVANTECPF" class="form-control"
-					   value="{{ $academia->COMPROVANTECPF }}"
-					   placeholder="Comprovante Cpf...">
-			</div>
-            <div class="form-group">
-            	<button class="btn btn-primary" type="submit">Salvar</button>
-            	<button class="btn btn-danger" type="reset">Cancelar</button>
-            </div>
+			<div class="row">
 
+				<div class="col-lg-6 col-sm-6 col-xs-12">
+					<div class="form-group">
+						<label for="nomecoreografia">Nome Coreografia</label>
+						<input type="text" name="nomecoreografia" required value="{{$coreografia->nomecoreografia}}" class="form-control" placeholder="Nome Coreografia...">
+					</div>
+				</div>
+
+				<div class="col-lg-6 col-sm-6 col-xs-12">
+					<div class="form-group">
+						<label>Academia</label>
+						<select name="ID_ACADEMIA" class="form-control">
+							@foreach($academias as $aca)
+								@if($aca->ID==$coreografia->id_academia)
+									<option value="{{$aca->ID}}" selected>
+										{{$aca->ACADEMIA}}
+									</option>
+								@else
+									<option value="{{$aca->ID}}">
+										{{$aca->ACADEMIA}}
+									</option>
+								@endif
+							@endforeach
+						</select>
+					</div>
+				</div>
+
+				<div class="col-lg-6 col-sm-6 col-xs-12">
+					<div class="form-group">
+						<label>Classificação</label>
+						<select name="classificacao" class="form-control">
+							<option value="Competição">Competição</option>
+							<option value="Mostra Avaliada">Mostra Avaliada</option>
+							<option value="Ambas">Ambas</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="col-lg-6 col-sm-6 col-xs-12">
+					<div class="form-group">
+						<label>Modalidade</label>
+						<select name="modalidade" class="form-control">
+							<option value="Ballet Clássico/Neoclássico">Ballet Clássico/Neoclássico</option>
+							<option value="Dança Moderna/Contemporânea">Dança Moderna/Contemporânea</option>
+							<option value="Ballet Clássico de Repertório">Ballet Clássico de Repertório</option>
+							<option value="Dança Livre">Dança Livre</option>
+							<option value="Jazz">Jazz</option>
+							<option value="Folclore de Projeção">Folclore de Projeção</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="col-lg-6 col-sm-6 col-xs-12">
+					<div class="form-group">
+						<label>Categoria</label>
+						<select name="categoria" class="form-control">
+							<option value="Infantil">Infantil</option>
+							<option value="Juvenil">Juvenil</option>
+							<option value="Juvenil Avançado">Juvenil Avançado</option>
+							<option value="Adulto">Adulto</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="col-lg-6 col-sm-6 col-xs-12">
+					<div class="form-group">
+						<label for="duracao">Duração</label>
+						<input type="text" name="duracao" required value="{{$coreografia->duracao}}" class="form-control" placeholder="Duração...">
+					</div>
+				</div>
+
+				<div class="col-lg-6 col-sm-6 col-xs-12">
+					<div class="form-group">
+						<label>Participação</label>
+						<select name="participacao" class="form-control">
+							<option value="SOLO">Solo</option>
+							<option value="DUO">Duo</option>
+							<option value="TRIO">Trio</option>
+							<option value="GRUPO/CONJUNTO">Grupo/Conjunto</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="col-lg-6 col-sm-6 col-xs-12">
+					<div class="form-group">
+						<label for="musica">Música</label>
+						<input type="text" name="musica" required value="{{$coreografia->musica}}" class="form-control" placeholder="Música...">
+					</div>
+				</div>
+
+				<div class="col-lg-6 col-sm-6 col-xs-12">
+					<div class="form-group">
+						<label for="arquivo_musica">Arquivo Música</label>
+						<input type="file" name="arquivo_musica"
+							   class="form-control">
+						@if(($coreografia->arquivo_musica)!="")
+							<audio src="{{asset('musicas/'.$coreografia->arquivo_musica)}}"/>
+						@endif
+					</div>
+
+				</div>
+
+				<div class="col-lg-6 col-sm-6 col-xs-12">
+					<div class="form-group">
+						<label for="coreografo">Coreógrafo</label>
+						<input type="text" name="coreografo" required value="{{$coreografia->coreografo}}" class="form-control" placeholder="Coreógrafo...">
+					</div>
+				</div>
+
+				<div class="col-lg-6 col-sm-6 col-xs-12">
+					<div class="form-group">
+						<label for="link_youtube">Link Youtube</label>
+						<input type="text" name="link_youtube" required value="{{$coreografia->link_youtube}}" class="form-control" placeholder="Link YouTube...">
+					</div>
+				</div>
+
+				<div class="col-lg-6 col-sm-6 col-xs-12">
+					<div class="form-group">
+						<label>Confirmada</label>
+					<br/><br/>
+							<input type="radio" name="confirmada" value="SIM">Sim</input>
+							<input type="radio" name="confirmada" value="NÃO">Não</input>
+					</div>
+				</div>
+
+				<div class="col-lg-6 col-sm-6 col-xs-12">
+					<div class="form-group">
+						<label for="dataapresentacao">Data Apresentação</label>
+						<input type="text" name="dataapresentacao" required value="{{$coreografia->dataapresentacao}}" class="form-control" placeholder="Data Apresentação...">
+					</div>
+				</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<button class="btn btn-primary" type="submit">Salvar</button>
+				<button class="btn btn-danger" type="reset">Cancelar</button>
+			</div>
 			{!!Form::close()!!}		
             
 		</div>

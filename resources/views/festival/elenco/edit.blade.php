@@ -27,8 +27,6 @@
 	            	</div>
             	</div>
 
-            	
-
             	<div class="col-lg-6 col-sm-6 col-xs-12">
             		<div class="form-group">
             		<label>Academia</label>
@@ -48,8 +46,6 @@
             		</div>
             	</div>
 
-            		
-            	
             	<div class="col-lg-6 col-sm-6 col-xs-12">
             		<div class="form-group">
 	            	<label for="DT_NASCIMENTO">Data de nascimento</label>

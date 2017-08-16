@@ -2,7 +2,7 @@
 @section('conteudo')
 <div class="row">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-			<h3>Novo Produto</h3>
+			<h3>Novo Elenco</h3>
 			@if (count($errors)>0)
 			<div class="alert alert-danger">
 				<ul>
@@ -16,7 +16,6 @@
 		</div>
 </div>
 
-
 			{!!Form::open(array('url'=>'festival/elenco','method'=>'POST','autocomplete'=>'off', 'files'=>'true'))!!}
             {{Form::token()}}
 
@@ -24,61 +23,71 @@
             	
             	<div class="col-lg-6 col-sm-6 col-xs-12">
 	            	<div class="form-group">
-	            	<label for="nome">Nome</label>
-	            	<input type="text" name="nome" required value="{{old('nome')}}" class="form-control" placeholder="Nome...">
+	            	<label for="NOME">Nome</label>
+	            	<input type="text" name="NOME" required value="{{old('NOME')}}" class="form-control" placeholder="Nome...">
 	            	</div>
             	</div>
 
-            	
+				<div class="col-lg-6 col-sm-6 col-xs-12">
+					<div class="form-group">
+						<label>Academia</label>
+						<select name="ID_ACADEMIA" class="form-control">
+							@foreach($academias as $aca)
+								@if($aca->ID)
+									<option value="{{$aca->ID}}" selected>
+										{{$aca->ACADEMIA}}
+									</option>
+								@else
+									<option value="{{$aca->ID}}">
+										{{$aca->ACADEMIA}}
+									</option>
+								@endif
+							@endforeach
+						</select>
+					</div>
+				</div>
 
+            		
+            	
             	<div class="col-lg-6 col-sm-6 col-xs-12">
             		<div class="form-group">
-            		<label>Categoria</label>
-            		<select name="idcategoria" class="form-control">
-	            		@foreach($categorias as $cat)
-	            		<option value="{{$cat->idcategoria}}">
-	            		{{$cat->nome}}
-	            		</option>
-	            		@endforeach
-            		</select>
-            		</div>
-            		
-            	</div>
-
-            		
-            	
-            	<div class="col-lg-6 col-sm-6 col-xs-12">
-            		<div class="form-group">
-	            	<label for="codigo">Código</label>
-	            	<input type="text" name="codigo" required value="{{old('codigo')}}" class="form-control" placeholder="Código do Produto...">
+	            	<label for="DT_NASCIMENTO">Data de Nascimento</label>
+	            	<input type="text" name="DT_NASCIMENTO" required value="{{old('DT_NASCIMENTO')}}" class="form-control" placeholder="Data de nascimento...">
 	            	</div>
             		
             	</div>
             		
             	<div class="col-lg-6 col-sm-6 col-xs-12">
             		<div class="form-group">
-	            	<label for="festival">festival</label>
-	            	<input type="text" name="festival" required value="{{old('festival')}}" class="form-control" placeholder="festival...">
+	            	<label for="RG">Rg</label>
+	            	<input type="text" name="RG" required value="{{old('RG')}}" class="form-control" placeholder="Rg...">
 	            	</div>	
             		
             	</div>
 
             	<div class="col-lg-6 col-sm-6 col-xs-12">
             		 <div class="form-group">
-            	<label for="descricao">Descrição</label>
-            	<input type="text" name="descricao" class="form-control" placeholder="Descrição...">
+						<label for="RG_ANEXO">Rg Anexo</label>
+						<input type="file" name="RG_ANEXO"
+						class="form-control">
             		</div>
-            		
             	</div>
 
-            	<div class="col-lg-6 col-sm-6 col-xs-12">
-            		 <div class="form-group">
-            	<label for="imagem">Imagem</label>
-            	<input type="file" name="imagem" 
-            	class="form-control">
-            		</div>
-            		
-            	</div>
+				<div class="col-lg-6 col-sm-6 col-xs-12">
+					<div class="form-group">
+						<label for="CPF_ANEXO">Cpf Anexo</label>
+						<input type="file" name="CPF_ANEXO"
+							   class="form-control">
+					</div>
+				</div>
+
+				<div class="col-lg-6 col-sm-6 col-xs-12">
+					<div class="form-group">
+						<label for="FOTO_ANEXO">Foto Anexo</label>
+						<input type="file" name="Foto_ANEXO"
+							   class="form-control">
+					</div>
+				</div>
 
             </div>
 

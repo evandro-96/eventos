@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Redirect;
 use sistemaLaravel\Coreografia;
 use sistemaLaravel\Http\Requests\AcademiaFormRequest;
 use DB;
+use sistemaLaravel\Http\Requests\CoreografiaFormRequest;
 
 class CoreografiaController extends Controller
 {
@@ -25,7 +26,7 @@ class CoreografiaController extends Controller
                 ->select('fc.id_inscricao', 'fa.ACADEMIA', 'fc.nomecoreografia',
                     'fc.classificacao', 'fa.ACADEMIA as festival_academia', 'fc.modalidade',
                     'fc.categoria', 'fc.duracao', 'fc.participacao', 'fc.musica', 'fc.arquivo_musica'
-                    , 'fc.coreografo', 'fc.link_youtube', 'fc.confirmada')
+                    , 'fc.coreografo', 'fc.link_youtube', 'fc.confirmada', 'fc.apresentacao', 'fc.horaensaio', 'fc.horaapresentacao')
                 ->where('fc.nomecoreografia', 'LIKE', '%'.$query.'%')
                 ->orwhere('fc.classificacao', 'LIKE', '%'.$query.'%')
                 ->orderBy('id_inscricao', 'asc')
@@ -37,73 +38,66 @@ class CoreografiaController extends Controller
     }
 
     public function create(){
-    	return view("festival.academia.create");
+        $academias = Academia::all();
+    	return view("festival.coreografia.create",["academias"=>$academias]);
     }
  
-    public function store(AcademiaFormRequest $request){
-    	$academia = new Coreografia();
-        $academia->ACADEMIA=$request->get('ACADEMIA');
-        $academia->NOMEDOGRUPO=$request->get('NOMEDOGRUPO');
-        $academia->ENDERECO=$request->get('ENDERECO');
-        $academia->NUMERO=$request->get('NUMERO');
-        $academia->BAIRRO=$request->get('BAIRRO');
-        $academia->CEP=$request->get('CEP');
-        $academia->PAIS=$request->get('PAIS');
-        $academia->CIDADE=$request->get('CIDADE');
-        $academia->UF=$request->get('UF');
-        $academia->EMAIL=$request->get('EMAIL');
-        $academia->TELEFONE=$request->get('TELEFONE');
-        $academia->DIRETOR=$request->get('DIRETOR');
-        $academia->CELULAR=$request->get('CELULAR');
-        $academia->USER=$request->get('USER');
-        $academia->PASS=$request->get('PASS');
-        $academia->COMPROVANTE=$request->get('COMPROVANTE');
-        $academia->PAGO=$request->get('PAGO');
-        $academia->CPF=$request->get('CPF');
-        $academia->COMPROVANTECPF=$request->get('COMPROVANTECPF');
-        $academia->save();
-    	return Redirect::to('festival/academia');
+    public function store(CoreografiaFormRequest $request){
+    	$coreografia = new Coreografia();
+        $coreografia->nomecoreografia=$request->get('nomecoreografia');
+        $coreografia->id_academia=$request->get('id_academia');
+        $coreografia->ACADEMIA=$request->get('ACADEMIA');
+        $coreografia->classificacao=$request->get('classificacao');
+        $coreografia->modalidade=$request->get('modalidade');
+        $coreografia->categoria=$request->get('categoria');
+        $coreografia->duracao=$request->get('duracao');
+        $coreografia->participacao=$request->get('participacao');
+        $coreografia->musica=$request->get('musica');
+        $coreografia->arquivo_musica=$request->get('arquivo_musica');
+        $coreografia->coreografo=$request->get('coreografia');
+        $coreografia->link_youtube=$request->get('link_youtube');
+        $coreografia->confirmada=$request->get('confirmada');
+        $coreografia->dataapresentacao=$request->get('dataapresentacao');
+        $coreografia->save();
+    	return Redirect::to('festival/coreografia');
     }
 
     public function show($id){
-    	return view("festival.academia.show",
-    		["festival_academia"=>Academia::findOrFail($id)]);
+    	return view("festival.coreografia.show",
+    		["festival_coreografia"=>Coreografia::findOrFail($id)]);
     }
 
     public function edit($id){
+        $coreografia = Coreografia::findOrFail($id);
+        $academias = Academia::all();
 
-    	return view("festival.academia.edit",
-    		["academia"=>Academia::findOrFail($id)]);
+        return view("festival.coreografia.edit",
+            ["coreografia"=>$coreografia, "academias"=>$academias]);
     }
 
-    public function update(AcademiaFormRequest $request, $id){
-    	$academia=Academia::findOrFail($id);
-        $academia->ACADEMIA=$request->get('ACADEMIA');
-        $academia->NOMEDOGRUPO=$request->get('NOMEDOGRUPO');
-        $academia->ENDERECO=$request->get('ENDERECO');
-        $academia->NUMERO=$request->get('NUMERO');
-        $academia->BAIRRO=$request->get('BAIRRO');
-        $academia->CEP=$request->get('CEP');
-        $academia->PAIS=$request->get('PAIS');
-        $academia->CIDADE=$request->get('CIDADE');
-        $academia->UF=$request->get('UF');
-        $academia->EMAIL=$request->get('EMAIL');
-        $academia->TELEFONE=$request->get('TELEFONE');
-        $academia->DIRETOR=$request->get('DIRETOR');
-        $academia->CELULAR=$request->get('CELULAR');
-        $academia->USER=$request->get('USER');
-        $academia->PASS=$request->get('PASS');
-        $academia->COMPROVANTE=$request->get('COMPROVANTE');
-        $academia->PAGO=$request->get('PAGO');
-        $academia->CPF=$request->get('CPF');
-        $academia->COMPROVANTECPF=$request->get('COMPROVANTECPF');
-        $academia->update();
-    	return Redirect::to('festival/academia');
+    public function update(CoreografiaFormRequest $request, $id){
+        $coreografia=Coreografia::findOrFail($id);
+        $coreografia->nomecoreografia=$request->get('nomecoreografia');
+        $coreografia->id_academia=$request->get('id_academia');
+        $coreografia->ACADEMIA=$request->get('ACADEMIA');
+        $coreografia->classificacao=$request->get('classificacao');
+        $coreografia->modalidade=$request->get('modalidade');
+        $coreografia->categoria=$request->get('categoria');
+        $coreografia->duracao=$request->get('duracao');
+        $coreografia->participacao=$request->get('participacao');
+        $coreografia->musica=$request->get('musica');
+        $coreografia->arquivo_musica=$request->get('arquivo_musica');
+        $coreografia->coreografo=$request->get('coreografia');
+        $coreografia->link_youtube=$request->get('link_youtube');
+        $coreografia->confirmada=$request->get('confirmada');
+        $coreografia->dataapresentacao=$request->get('dataapresentacao');
+        $coreografia->update();
+    	return Redirect::to('festival/coreografia');
     }
 
     public function destroy($id){
-        $academia=Academia::findOrFail($id);
+        $academia=Coreografia::findOrFail($id);
         $academia->delete();
-    	return Redirect::to('festival/academia');
+    	return Redirect::to('festival/coreografia');
     }
 }
