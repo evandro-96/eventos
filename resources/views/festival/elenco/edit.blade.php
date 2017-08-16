@@ -2,6 +2,7 @@
 @section('conteudo')
 <div class="row">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+			<img src="{{asset('imagens/elencos/'.$elenco->FOTO_ANEXO) }}"width="100px" height="100px">
 			<h3>Editar Elenco: {{ $elenco->NOME }}</h3>
 			@if (count($errors)>0)
 			<div class="alert alert-danger">
