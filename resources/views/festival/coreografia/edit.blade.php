@@ -150,30 +150,35 @@
 				</div>
 			</div>
 
-			<div class="table-responsive">
-				<label>Elenco</label>
-				<table class="table table-striped table-bordered table-condensed table-hover">
-					<thead>
-					<th>Participante</th>
-					</thead>
-					@foreach ($elenco as $ele)
-						<tr>
-							<td>{{ $ele->NOME}}</td>
-							<td>
-								<a href="{{URL::action('CoreografiaController@edit',$ele->id_inscricao)}}"><button class="btn btn-info">Editar</button></a>
-								<a href="" data-target="#modal-delete-{{$ele->id_inscricao}}" data-toggle="modal"><button class="btn btn-danger">Excluir</button></a>
-							</td>
-						</tr>
-					@endforeach
-				</table>
-			</div>
+
 				<div class="form-group">
 					<button class="btn btn-primary" type="submit">Salvar</button>
 					<button class="btn btn-danger" type="reset">Cancelar</button>
 				</div>
 		</div>
 
-			{!!Form::close()!!}		
+			{!!Form::close()!!}
+
+	<div class="table-responsive">
+		<label>Elenco</label>
+		<table class="table table-striped table-bordered table-condensed table-hover">
+			<thead><button type="button" class="btn btn-success">Novo Participante</button>
+			<th>Participante</th>
+			<th>Categoria</th>
+			</thead>
+				@foreach ($elenco as $ele)
+					@if($ele->ID==$coreografiaElenco->ID_ELENCO)
+					<tr>
+						<td>{{ $ele->NOME}}</td>
+						<td>{{ $ele->NOME}}</td>
+						<td>
+							<a href="" data-target="#modal-delete-{{$ele->ID}}" data-toggle="modal"><button class="btn btn-danger">Excluir</button></a>
+						</td>
+					</tr>
+					@endif
+				@endforeach
+		</table>
+	</div>
             
 </div>
 

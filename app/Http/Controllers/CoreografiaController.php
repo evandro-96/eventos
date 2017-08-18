@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use sistemaLaravel\Academia;
 use Illuminate\Support\Facades\Redirect;
 use sistemaLaravel\Coreografia;
+use sistemaLaravel\CoreografiaElenco;
 use sistemaLaravel\Elenco;
 use sistemaLaravel\Http\Requests\AcademiaFormRequest;
 use DB;
@@ -74,9 +75,11 @@ class CoreografiaController extends Controller
         $coreografia = Coreografia::findOrFail($id);
         $academias = Academia::all();
         $elenco = Elenco::all();
+        $coreografiaElenco = CoreografiaElenco::findOrFail($id);
 
         return view("festival.coreografia.edit",
-            ["coreografia"=>$coreografia, "academias"=>$academias, "elenco"=>$elenco]);
+            ["coreografia"=>$coreografia, "academias"=>$academias,
+                "elenco"=>$elenco, "coreografiaElenco"=>$coreografiaElenco]);
     }
 
     public function update(CoreografiaFormRequest $request, $id){

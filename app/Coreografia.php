@@ -43,4 +43,9 @@ class Coreografia extends Model
         return $this->belongsTo('sistemaLaravel\Academia', 'id_academia');
     }
 
+    public function coreografiaElenco()
+    {
+        return $this->belongsTo('sistemaLaravel\CoreografiaElenco', 'ID_COREOGRAFIA');
+    }
+
 }

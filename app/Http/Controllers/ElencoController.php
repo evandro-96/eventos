@@ -18,7 +18,7 @@ class ElencoController extends Controller
     }
 
     public function index(Request $request){
-        // conversçao da data que vem do banco para (d/m/y)
+        // conversao da data que vem do banco para (d/m/y)
         $toCarbon = Carbon::parse();
     	if($request){
     		$query=trim($request->get('searchText'));
