@@ -26,9 +26,8 @@
 					<th>Telefone</th>
 					<th>Diretor</th>
 					<th>Celular</th>
-					<th>Comprovante</th>
 					<th>Pago</th>
-					<th>Comprovante CPF</th>
+
 				</thead>
                @foreach ($academia as $aca)
 				<tr>
@@ -46,10 +45,10 @@
 					<td>{{ $aca->TELEFONE}}</td>
 					<td>{{ $aca->DIRETOR}}</td>
 					<td>{{ $aca->CELULAR}}</td>
-					<td>{{ $aca->COMPROVANTE}}</td>
+
 					<td>{{ $aca->PAGO}}</td>
 
-					<td>{{ $aca->COMPROVANTECPF}}</td>
+
 
 
 

@@ -24,14 +24,14 @@ class ElencoFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'ID'=>'required',
+//            'ID'=>'required',
             'ID_ACADEMIA'=>'required',
             'NOME'=>'required|max:50',
             'DT_NASCIMENTO'=>'required|max:10',
             'RG'=>'required|max:512',
             'RG_ANEXO'=>'mimes:jpeg,bmp,png',
             'CPF_ANEXO'=>'mimes:jpeg,bmp,png',
-            'FOTO_ANEXO'=>'mimes:jpeg,bmp,png',
+            'FOTO_ANEXO'=>'mimes:jpeg,bmp,png'
         ];
     }
 }

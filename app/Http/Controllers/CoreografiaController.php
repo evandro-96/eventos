@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use sistemaLaravel\Academia;
 use Illuminate\Support\Facades\Redirect;
 use sistemaLaravel\Coreografia;
+use sistemaLaravel\Elenco;
 use sistemaLaravel\Http\Requests\AcademiaFormRequest;
 use DB;
 use sistemaLaravel\Http\Requests\CoreografiaFormRequest;
@@ -29,6 +30,7 @@ class CoreografiaController extends Controller
                     , 'fc.coreografo', 'fc.link_youtube', 'fc.confirmada', 'fc.apresentacao', 'fc.horaensaio', 'fc.horaapresentacao')
                 ->where('fc.nomecoreografia', 'LIKE', '%'.$query.'%')
                 ->orwhere('fc.classificacao', 'LIKE', '%'.$query.'%')
+                ->orwhere('fc.categoria', 'LIKE', '%'.$query.'%')
                 ->orderBy('id_inscricao', 'asc')
                 ->paginate(25);
             return view('festival.coreografia.index', [
@@ -46,7 +48,6 @@ class CoreografiaController extends Controller
     	$coreografia = new Coreografia();
         $coreografia->nomecoreografia=$request->get('nomecoreografia');
         $coreografia->id_academia=$request->get('id_academia');
-        $coreografia->ACADEMIA=$request->get('ACADEMIA');
         $coreografia->classificacao=$request->get('classificacao');
         $coreografia->modalidade=$request->get('modalidade');
         $coreografia->categoria=$request->get('categoria');
@@ -54,9 +55,11 @@ class CoreografiaController extends Controller
         $coreografia->participacao=$request->get('participacao');
         $coreografia->musica=$request->get('musica');
         $coreografia->arquivo_musica=$request->get('arquivo_musica');
-        $coreografia->coreografo=$request->get('coreografia');
+        $coreografia->coreografo=$request->get('coreografo');
         $coreografia->link_youtube=$request->get('link_youtube');
         $coreografia->confirmada=$request->get('confirmada');
+        $coreografia->horaensaio=$request->get('horaensaio');
+        $coreografia->horaapresentacao=$request->get('horaapresentacao');
         $coreografia->dataapresentacao=$request->get('dataapresentacao');
         $coreografia->save();
     	return Redirect::to('festival/coreografia');
@@ -70,9 +73,10 @@ class CoreografiaController extends Controller
     public function edit($id){
         $coreografia = Coreografia::findOrFail($id);
         $academias = Academia::all();
+        $elenco = Elenco::all();
 
         return view("festival.coreografia.edit",
-            ["coreografia"=>$coreografia, "academias"=>$academias]);
+            ["coreografia"=>$coreografia, "academias"=>$academias, "elenco"=>$elenco]);
     }
 
     public function update(CoreografiaFormRequest $request, $id){

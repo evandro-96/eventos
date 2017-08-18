@@ -8,6 +8,7 @@ class Elenco extends Model
 {
     protected $table = 'festival_elenco';
     protected $primaryKey = 'ID';
+    protected $dates = ['dob'];
 
     public $timestamps = false;
     protected $fillable = [

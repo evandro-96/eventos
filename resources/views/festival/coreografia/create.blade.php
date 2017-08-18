@@ -19,29 +19,64 @@
 				<label for="nomecoreografia">Nome coreografia</label>
 				<input type="text" name="nomecoreografia" class="form-control" placeholder="Nome Coreografia...">
 			</div>
-            <div class="form-group">
-            	<label for="ACADEMIA">Academia</label>
-            	<input type="text" name="ACADEMIA" class="form-control" placeholder="Academia...">
-            </div>
+
 			<div class="form-group">
-				<label for="classificacao">Classificação</label>
-				<input type="text" name="classificacao" class="form-control" placeholder="Classificação...">
+				<label>Academia</label>
+				<select name="id_academia" class="form-control">
+					@foreach($academias as $aca)
+						@if($aca->ID)
+							<option value="{{$aca->ID}}" selected>
+								{{$aca->ACADEMIA}}
+							</option>
+						@else
+							<option value="{{$aca->ID}}">
+								{{$aca->ACADEMIA}}
+							</option>
+						@endif
+					@endforeach
+				</select>
+			</div>
+
+			<div class="form-group">
+				<label>Classificação</label>
+				<select name="classificacao" class="form-control">
+					<option value="Competição">Competição</option>
+					<option value="Mostra Avaliada">Mostra Avaliada</option>
+					<option value="Ambas">Ambas</option>
+				</select>
 			</div>
 			<div class="form-group">
-				<label for="modalidade">Modalidade</label>
-				<input type="text" name="modalidade" class="form-control" placeholder="Modalidade...">
+				<label>Modalidade</label>
+				<select name="modalidade" class="form-control">
+					<option value="Ballet Clássico/Neoclássico">Ballet Clássico/Neoclássico</option>
+					<option value="Dança Moderna/Contemporânea">Dança Moderna/Contemporânea</option>
+					<option value="Ballet Clássico de Repertório">Ballet Clássico de Repertório</option>
+					<option value="Dança Livre">Dança Livre</option>
+					<option value="Jazz">Jazz</option>
+					<option value="Folclore de Projeção">Folclore de Projeção</option>
+				</select>
 			</div>
 			<div class="form-group">
-				<label for="categoria">Categoria</label>
-				<input type="text" name="categoria" class="form-control" placeholder="Categoria...">
+				<label>Categoria</label>
+				<select name="categoria" class="form-control">
+					<option value="Infantil">Infantil</option>
+					<option value="Juvenil">Juvenil</option>
+					<option value="Juvenil Avançado">Juvenil Avançado</option>
+					<option value="Adulto">Adulto</option>
+				</select>
 			</div>
 			<div class="form-group">
 				<label for="duracao">Duração</label>
 				<input type="text" name="duracao" class="form-control" placeholder="Duração...">
 			</div>
 			<div class="form-group">
-				<label for="participacao">Participação</label>
-				<input type="text" name="participacao" class="form-control" placeholder="Participação...">
+				<label>Participação</label>
+				<select name="participacao" class="form-control">
+					<option value="SOLO">Solo</option>
+					<option value="DUO">Duo</option>
+					<option value="TRIO">Trio</option>
+					<option value="GRUPO/CONJUNTO">Grupo/Conjunto</option>
+				</select>
 			</div>
 			<div class="form-group">
 				<label for="musica">Música</label>
@@ -60,8 +95,11 @@
 				<input type="text" name="link_youtube" class="form-control" placeholder="Link YouTube...">
 			</div>
 			<div class="form-group">
-				<label for="confirmada">Confirmada(SIM/NAO)</label>
-				<input type="text" name="confirmada" class="form-control" placeholder="Confirmada...">
+				<label>Confirmada</label>
+				<select name="confirmada" class="form-control">
+					<option value="NÃO">Não</option>
+					<option value="SIM">SIM</option>
+				</select>
 			</div>
 			<div class="form-group">
 				<label for="apresentacao">Apresentação</label>

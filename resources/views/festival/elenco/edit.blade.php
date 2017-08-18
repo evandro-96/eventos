@@ -3,7 +3,7 @@
 <div class="row">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 			<img src="{{asset('imagens/elencos/'.$elenco->FOTO_ANEXO) }}"width="100px" height="100px">
-			<h3>Editar Elenco: {{ $elenco->NOME }}</h3>
+			<h3>Editar Participante: {{ $elenco->NOME }}</h3>
 			@if (count($errors)>0)
 			<div class="alert alert-danger">
 				<ul>
@@ -50,7 +50,7 @@
             	<div class="col-lg-6 col-sm-6 col-xs-12">
             		<div class="form-group">
 	            	<label for="DT_NASCIMENTO">Data de nascimento</label>
-	            	<input type="text" name="DT_NASCIMENTO" required value="{{$elenco->DT_NASCIMENTO}}" class="form-control" placeholder="Data de nascimento...">
+	            	<input type="text" name="DT_NASCIMENTO" required value="{{Carbon\Carbon::parse($elenco->DT_NASCIMENTO)->format('d/m/Y')}}" class="form-control" placeholder="Data de nascimento...">
 	            	</div>
             	</div>
             		
@@ -86,12 +86,8 @@
 
 			   </div>
 
-
-
             </div>
 
-            
-           
             <div class="form-group">
             	<button class="btn btn-primary" type="submit">Salvar</button>
             	<button class="btn btn-danger" type="reset">Cancelar</button>

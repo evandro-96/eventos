@@ -15,7 +15,7 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="{{asset('css/_all-skins.min.css')}}">
-    <link rel="apple-touch-icon" href="{{asset('img/apple-touch-icon.png')}}">
+    <link rel="danceicon" href="{{asset('img/danceicon.png')}}">
     <link rel="shortcut icon" href="{{asset('img/favicon.ico')}}">
 
   </head>
@@ -25,7 +25,7 @@
       <header class="main-header">
 
         <!-- Logo -->
-        <a href="index2.html" class="logo">
+        <a href="/" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>FD</b>D</span>
           <!-- logo for regular state and mobile devices -->
@@ -56,8 +56,15 @@
                     <p>
                       Sistema Festival de Dança
                     </p>
+
                   </li>
-                  
+
+                  <li class="user-body">
+                  <p>
+                    teste teste
+                  </p>>
+
+                  </li>>
                   <!-- Menu Footer-->
                   <li class="user-footer">
                     
@@ -90,10 +97,9 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="/festival/elenco"><i class="fa fa-circle-o"></i> Elenco</a></li>
+                <li><a href="/festival/elenco"><i class="fa fa-circle-o"></i> Participantes</a></li>
                 <li><a href="/festival/academia"><i class="fa fa-circle-o"></i> Academia</a></li>
                 <li><a href="/festival/coreografia"><i class="fa fa-circle-o"></i> Coreografia</a></li>
-                <li><a href="/festival/jurados"><i class="fa fa-circle-o"></i> Jurados</a></li>
               </ul>
             </li>
             
@@ -104,8 +110,8 @@
                  <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="compras/entrada"><i class="fa fa-circle-o"></i> </a></li>
-                <li><a href="compras/fornecedor"><i class="fa fa-circle-o"></i> </a></li>
+                <li><a href=""><i class="fa fa-circle-o"></i> </a></li>
+                <li><a href=""><i class="fa fa-circle-o"></i> </a></li>
               </ul>
             </li>
 

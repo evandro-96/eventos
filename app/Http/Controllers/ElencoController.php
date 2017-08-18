@@ -2,6 +2,7 @@
 
 namespace sistemaLaravel\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use sistemaLaravel\Academia;
 use sistemaLaravel\Elenco;
@@ -17,7 +18,8 @@ class ElencoController extends Controller
     }
 
     public function index(Request $request){
-
+        // conversçao da data que vem do banco para (d/m/y)
+        $toCarbon = Carbon::parse();
     	if($request){
     		$query=trim($request->get('searchText'));
     		$elencos=DB::table('festival_elenco as fe')
@@ -28,9 +30,10 @@ class ElencoController extends Controller
     		 'fe.RG_ANEXO', 'fe.CPF_ANEXO', 'fe.FOTO_ANEXO')
     		->where('fe.NOME', 'LIKE', '%'.$query.'%')
                 ->orwhere('fa.ACADEMIA', 'LIKE', '%'.$query.'%')
+                ->orwhere('fe.RG', 'LIKE', '%'.$query.'%')
     		->orderBy('ID', 'asc')
     		->paginate(25);
-    		return view('festival.elenco.index', [
+    		return view('festival.elenco.index', [ "toCarbon"=>$toCarbon,
     			"elenco"=>$elencos, "searchText"=>$query
     			]);
     	}
@@ -66,6 +69,7 @@ class ElencoController extends Controller
                 $file->getClientOriginalName());
             $elenco->FOTO_ANEXO=$file->getClientOriginalName();
         }
+        dump($elenco);
     	
     	$elenco->save();
     	return Redirect::to('festival/elenco');

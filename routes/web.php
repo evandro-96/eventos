@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::resource('festival/academia', 'AcademiaController');
 Route::resource('festival/elenco', 'ElencoController');
 Route::resource('festival/coreografia', 'CoreografiaController');

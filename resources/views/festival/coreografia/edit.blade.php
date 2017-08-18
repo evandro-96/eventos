@@ -133,30 +133,48 @@
 						<input type="text" name="link_youtube" required value="{{$coreografia->link_youtube}}" class="form-control" placeholder="Link YouTube...">
 					</div>
 				</div>
-
 				<div class="col-lg-6 col-sm-6 col-xs-12">
 					<div class="form-group">
 						<label>Confirmada</label>
-					<br/><br/>
-							<input type="radio" name="confirmada" value="SIM">Sim</input>
-							<input type="radio" name="confirmada" value="NÃO">Não</input>
+						<select name="confirmada" class="form-control">
+							<option value="NÃO">Não</option>
+							<option value="SIM">Sim</option>
+						</select>
 					</div>
 				</div>
-
 				<div class="col-lg-6 col-sm-6 col-xs-12">
 					<div class="form-group">
 						<label for="dataapresentacao">Data Apresentação</label>
 						<input type="text" name="dataapresentacao" required value="{{$coreografia->dataapresentacao}}" class="form-control" placeholder="Data Apresentação...">
 					</div>
 				</div>
+			</div>
+
+			<div class="table-responsive">
+				<label>Elenco</label>
+				<table class="table table-striped table-bordered table-condensed table-hover">
+					<thead>
+					<th>Participante</th>
+					</thead>
+					@foreach ($elenco as $ele)
+						<tr>
+							<td>{{ $ele->NOME}}</td>
+							<td>
+								<a href="{{URL::action('CoreografiaController@edit',$ele->id_inscricao)}}"><button class="btn btn-info">Editar</button></a>
+								<a href="" data-target="#modal-delete-{{$ele->id_inscricao}}" data-toggle="modal"><button class="btn btn-danger">Excluir</button></a>
+							</td>
+						</tr>
+					@endforeach
+				</table>
+			</div>
+				<div class="form-group">
+					<button class="btn btn-primary" type="submit">Salvar</button>
+					<button class="btn btn-danger" type="reset">Cancelar</button>
 				</div>
-			</div>
-			<div class="form-group">
-				<button class="btn btn-primary" type="submit">Salvar</button>
-				<button class="btn btn-danger" type="reset">Cancelar</button>
-			</div>
+		</div>
+
 			{!!Form::close()!!}		
             
-		</div>
-	</div>
+</div>
+
 @stop
