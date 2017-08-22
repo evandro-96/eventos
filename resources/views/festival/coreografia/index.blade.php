@@ -23,7 +23,6 @@
 					<th>Musica</th>
 					<th>Arquivo musica</th>
 					<th>Coreógrafo</th>
-					<th>Link YouTube</th>
 					<th>Confirmada</th>
 					<th>Apresentação</th>
 					<th>Hora ensaio</th>
@@ -42,7 +41,6 @@
 					<td>{{ $core->musica}}</td>
 					<td>{{ $core->arquivo_musica}}</td>
 					<td>{{ $core->coreografo}}</td>
-					<td>{{ $core->link_youtube}}</td>
 					<td>{{ $core->confirmada}}</td>
 					<td>{{ $core->apresentacao}}</td>
 					<td>{{ $core->horaensaio}}</td>

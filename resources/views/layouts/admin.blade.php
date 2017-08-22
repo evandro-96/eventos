@@ -16,7 +16,7 @@
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="{{asset('css/_all-skins.min.css')}}">
     <link rel="danceicon" href="{{asset('img/danceicon.png')}}">
-    <link rel="shortcut icon" href="{{asset('img/favicon.ico')}}">
+    <link rel="shortcut icon" href="{{asset('img/danceicon.ico')}}">
 
   </head>
   <body class="hold-transition skin-blue sidebar-mini">

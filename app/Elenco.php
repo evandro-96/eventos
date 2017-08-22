@@ -34,4 +34,5 @@ class Elenco extends Model
     {
         return $this->belongsTo('sistemaLaravel\CoreografiaElenco', 'ID_ELENCO');
     }
+
 }

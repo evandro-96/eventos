@@ -29,7 +29,7 @@
 				<div class="col-lg-6 col-sm-6 col-xs-12">
 					<div class="form-group">
 						<label>Academia</label>
-						<select name="ID_ACADEMIA" class="form-control">
+						<select name="id_academia" class="form-control">
 							@foreach($academias as $aca)
 								@if($aca->ID==$coreografia->id_academia)
 									<option value="{{$aca->ID}}" selected>
@@ -159,26 +159,26 @@
 
 			{!!Form::close()!!}
 
-	<div class="table-responsive">
-		<label>Elenco</label>
-		<table class="table table-striped table-bordered table-condensed table-hover">
-			<thead><button type="button" class="btn btn-success">Novo Participante</button>
-			<th>Participante</th>
-			<th>Categoria</th>
-			</thead>
-				@foreach ($elenco as $ele)
-					@if($ele->ID==$coreografiaElenco->ID_ELENCO)
-					<tr>
-						<td>{{ $ele->NOME}}</td>
-						<td>{{ $ele->NOME}}</td>
-						<td>
-							<a href="" data-target="#modal-delete-{{$ele->ID}}" data-toggle="modal"><button class="btn btn-danger">Excluir</button></a>
-						</td>
-					</tr>
-					@endif
-				@endforeach
-		</table>
-	</div>
+		<div class="table-responsive">
+			<label>Elenco</label>
+			<table class="table table-striped table-bordered table-condensed table-hover">
+				<thead><button type="button" class="btn btn-success">Novo Participante</button>
+				<th>Participante</th>
+				<th>Categoria</th>
+				</thead>
+					@foreach ($coreografiaElenco as $corEle)
+						@if($corEle->ID_COREOGRAFIA == $coreografia->id_inscricao)
+						<tr>
+							<td>{{ $corEle->ID_ELENCO}}</td>
+							<td>{{ $corEle->ID_ELENCO}}</td>
+							<td>
+								<a href="" data-target="#modal-delete-{{$corEle->ID}}" data-toggle="modal"><button class="btn btn-danger">Excluir</button></a>
+							</td>
+						</tr>
+						@endif
+					@endforeach
+			</table>
+		</div>
             
 </div>
 
