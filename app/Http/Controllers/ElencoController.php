@@ -5,6 +5,7 @@ namespace sistemaLaravel\Http\Controllers;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use sistemaLaravel\Academia;
+use sistemaLaravel\Coreografia;
 use sistemaLaravel\Elenco;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
@@ -41,7 +42,8 @@ class ElencoController extends Controller
 
     public function create(){
         $academias = Academia::all();
-        return view("festival.elenco.create",["academias"=>$academias]);
+        $coreografia = Coreografia::all();
+        return view("festival.elenco.create",["academias"=>$academias, "coreografia"=>$coreografia]);
     }
  
     public function store(ElencoFormRequest $request){
@@ -83,6 +85,7 @@ class ElencoController extends Controller
     public function edit($id){
         $elenco = Elenco::findOrFail($id);
         $academias = Academia::all();
+
 
         return view("festival.elenco.edit",
             ["elenco"=>$elenco, "academias"=>$academias]);
