@@ -107,4 +107,6 @@ class CoreografiaController extends Controller
         $academia->delete();
     	return Redirect::to('festival/coreografia');
     }
+
+
 }
