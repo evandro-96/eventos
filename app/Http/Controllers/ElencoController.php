@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use sistemaLaravel\Academia;
 use sistemaLaravel\Coreografia;
+use sistemaLaravel\CoreografiaElenco;
 use sistemaLaravel\Elenco;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
@@ -48,11 +49,14 @@ class ElencoController extends Controller
  
     public function store(ElencoFormRequest $request){
     	$elenco = new Elenco;
-
+        $coreografiaElenco = new CoreografiaElenco;
+        $coreografia = Coreografia::all();
     	$elenco->ID_ACADEMIA=$request->get('ID_ACADEMIA');
     	$elenco->NOME=$request->get('NOME');
     	$elenco->DT_NASCIMENTO=$request->get('DT_NASCIMENTO');
     	$elenco->RG=$request->get('RG');
+    	$coreografiaElenco->elenco()->associate($elenco);
+    	$coreografiaElenco->coreografia()->associate($coreografia);
         if(Input::hasFile('RG_ANEXO')){
             $file=Input::file('RG_ANEXO');
             $file->move(public_path().'/imagens/elencos/',
@@ -85,10 +89,11 @@ class ElencoController extends Controller
     public function edit($id){
         $elenco = Elenco::findOrFail($id);
         $academias = Academia::all();
+        $coreografia = Coreografia::all();
 
 
         return view("festival.elenco.edit",
-            ["elenco"=>$elenco, "academias"=>$academias]);
+            ["elenco"=>$elenco, "academias"=>$academias, "coreografia"=>$coreografia]);
     }
 
     public function update(ElencoFormRequest $request, $id){

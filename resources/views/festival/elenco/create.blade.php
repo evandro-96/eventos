@@ -54,15 +54,13 @@
 	            	<label for="DT_NASCIMENTO">Data de Nascimento</label>
 	            	<input type="text" name="DT_NASCIMENTO" required value="{{old('DT_NASCIMENTO')}}" class="form-control" placeholder="Data de nascimento...">
 	            	</div>
-            		
             	</div>
             		
             	<div class="col-lg-6 col-sm-6 col-xs-12">
             		<div class="form-group">
 	            	<label for="RG">Rg</label>
 	            	<input type="text" name="RG" required value="{{old('RG')}}" class="form-control" placeholder="Rg...">
-	            	</div>	
-            		
+	            	</div>
             	</div>
 
             	<div class="col-lg-6 col-sm-6 col-xs-12">
