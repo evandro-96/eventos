@@ -32,7 +32,7 @@ class Elenco extends Model
 
     public function coreografiaElenco()
     {
-        return $this->belongsTo('sistemaLaravel\CoreografiaElenco', 'ID_ELENCO');
+        return $this->hasMany('sistemaLaravel\CoreografiaElenco', 'ID_ELENCO');
     }
 
 }

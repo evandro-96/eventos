@@ -159,6 +159,7 @@
 
 			{!!Form::close()!!}
 
+	<div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
 		<div class="table-responsive">
 			<label>Elenco</label>
 			<table class="table table-striped table-bordered table-condensed table-hover">
@@ -169,8 +170,9 @@
 					@foreach ($coreografiaElenco as $corEle)
 						@if($corEle->ID_COREOGRAFIA == $coreografia->id_inscricao)
 						<tr>
-							<td>{{ $corEle->ID_ELENCO}}</td>
-							<td>{{ $corEle->ID_ELENCO}}</td>
+							<td>{{ $corEle->NOME}}</td>
+							<td>{{ $corEle->NOME}}</td>
+
 							<td>
 								<a href="" data-target="#modal-delete-{{$corEle->ID}}" data-toggle="modal"><button class="btn btn-danger">Excluir</button></a>
 							</td>
@@ -179,7 +181,7 @@
 					@endforeach
 			</table>
 		</div>
-            
+	</div>
 </div>
 
 @stop

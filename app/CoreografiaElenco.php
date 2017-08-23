@@ -21,12 +21,12 @@ class CoreografiaElenco extends Model
 
     public function elenco()
     {
-        return $this->hasMany('sistemaLaravel\Elenco', 'ID_ELENCO');
+        return $this->belongsTo('sistemaLaravel\Elenco', 'ID_ELENCO');
     }
 
     public function coreografia()
     {
-        return $this->hasMany('sistemaLaravel\Coreografia', 'ID_COREOGRAFIA');
+        return $this->belongsTo('sistemaLaravel\Coreografia', 'ID_COREOGRAFIA');
     }
 
 }
