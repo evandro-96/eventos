@@ -18,6 +18,7 @@
     <link rel="danceicon" href="{{asset('img/danceicon.png')}}">
     <link rel="shortcut icon" href="{{asset('img/danceicon.ico')}}">
 
+    @yield('links')
   </head>
   <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
@@ -110,7 +111,7 @@
                  <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href=""><i class="fa fa-circle-o"></i> </a></li>
+                <li><a href=""><i class="fa fa-circle-o"></i> Notas </a></li>
                 <li><a href=""><i class="fa fa-circle-o"></i> </a></li>
               </ul>
             </li>
@@ -188,6 +189,8 @@
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
     <!-- AdminLTE App -->
     <script src="{{asset('js/app.min.js')}}"></script>
+
+    @yield('scripts')
     
   </body>
 </html>
