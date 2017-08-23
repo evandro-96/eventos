@@ -163,16 +163,15 @@
 		<div class="table-responsive">
 			<label>Elenco</label>
 			<table class="table table-striped table-bordered table-condensed table-hover">
-				<thead><button type="button" class="btn btn-success">Novo Participante</button>
+				<h3>Lista de Participantes <a href="/festival/elenco/create"><button class="btn btn-success">Novo Participante</button></a></h3>
 				<th>Participante</th>
 				<th>Categoria</th>
 				</thead>
 					@foreach ($coreografiaElenco as $corEle)
 						@if($corEle->ID_COREOGRAFIA == $coreografia->id_inscricao)
 						<tr>
-							<td>{{ $corEle->NOME}}</td>
-							<td>{{ $corEle->NOME}}</td>
-
+							<td>{{ $corEle->elenco['NOME']}}</td>
+							<td>Categoria</td>
 							<td>
 								<a href="" data-target="#modal-delete-{{$corEle->ID}}" data-toggle="modal"><button class="btn btn-danger">Excluir</button></a>
 							</td>

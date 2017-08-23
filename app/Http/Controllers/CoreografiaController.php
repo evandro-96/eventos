@@ -74,7 +74,7 @@ class CoreografiaController extends Controller
     public function edit($id){
         $coreografia = Coreografia::findOrFail($id);
         $academias = Academia::all();
-        $elenco = Elenco::all();
+        $elenco = Elenco::first()->get();
         $coreografiaElenco = CoreografiaElenco::all();
 
         return view("festival.coreografia.edit",

@@ -89,9 +89,26 @@
 					</div>
 				</div>
 
-            </div>
+				<div class="col-lg-6 col-sm-6 col-xs-12">
+					<div class="form-group">
+						<label>Coreografia</label>
+						<select name="ID_ACADEMIA" class="form-control">
+							@foreach($coreografia as $cor)
+								@if($cor->id_inscricao)
+									<option value="{{$cor->id_inscricao}}" selected>
+										{{$cor->nomecoreografia}}
+									</option>
+								@else
+									<option value="{{$cor->id_inscricao}}">
+										{{$cor->nomecoreografia}}
+									</option>
+								@endif
+							@endforeach
+						</select>
+					</div>
+				</div>
 
-            
+            </div>
            
             <div class="form-group">
             	<button class="btn btn-primary" type="submit">Salvar</button>
