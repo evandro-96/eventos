@@ -50,13 +50,11 @@ class ElencoController extends Controller
     public function store(ElencoFormRequest $request){
     	$elenco = new Elenco;
         $coreografiaElenco = new CoreografiaElenco;
-        $coreografia = Coreografia::all();
     	$elenco->ID_ACADEMIA=$request->get('ID_ACADEMIA');
     	$elenco->NOME=$request->get('NOME');
     	$elenco->DT_NASCIMENTO=$request->get('DT_NASCIMENTO');
     	$elenco->RG=$request->get('RG');
-    	$coreografiaElenco->elenco()->associate($elenco);
-    	$coreografiaElenco->coreografia()->associate($coreografia);
+
         if(Input::hasFile('RG_ANEXO')){
             $file=Input::file('RG_ANEXO');
             $file->move(public_path().'/imagens/elencos/',
@@ -75,9 +73,12 @@ class ElencoController extends Controller
                 $file->getClientOriginalName());
             $elenco->FOTO_ANEXO=$file->getClientOriginalName();
         }
-        dump($elenco);
-    	
-    	$elenco->save();
+//        dump($elenco);
+        $elenco->save();
+        $coreografiaElenco->elenco()->associate($elenco);
+        $coreografiaElenco->coreografia()->associate(Coreografia::find($request->id_inscricao));
+//        dump($coreografiaElenco);
+    	$coreografiaElenco->save();
     	return Redirect::to('festival/elenco');
     }
 
@@ -128,7 +129,6 @@ class ElencoController extends Controller
 
     public function destroy($id){
     	$elenco=Elenco::findOrFail($id);
-
     	$elenco->delete();
     	return Redirect::to('festival/elenco');
     }

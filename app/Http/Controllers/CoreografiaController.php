@@ -103,8 +103,8 @@ class CoreografiaController extends Controller
     }
 
     public function destroy($id){
-        $academia=Coreografia::findOrFail($id);
-        $academia->delete();
+        $coreografia=Coreografia::findOrFail($id);
+        $coreografia->delete();
     	return Redirect::to('festival/coreografia');
     }
 

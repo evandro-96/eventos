@@ -164,12 +164,14 @@
 			<label>Elenco</label>
 			<table class="table table-striped table-bordered table-condensed table-hover">
 				<h3>Lista de Participantes <a href="/festival/elenco/create"><button class="btn btn-success">Novo Participante</button></a></h3>
+				<th>ID</th>
 				<th>Participante</th>
 				<th>Categoria</th>
 				</thead>
 					@foreach ($coreografiaElenco as $corEle)
 						@if($corEle->ID_COREOGRAFIA == $coreografia->id_inscricao)
 						<tr>
+							<td>{{ $corEle->ID}}</td>
 							<td>{{ $corEle->elenco['NOME']}}</td>
 							<td>Categoria</td>
 							<td>
