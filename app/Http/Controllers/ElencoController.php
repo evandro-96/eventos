@@ -99,7 +99,7 @@ class ElencoController extends Controller
 
     public function update(ElencoFormRequest $request, $id){
     	$elenco=Elenco::findOrFail($id);
-
+        $coreografiaElenco = new CoreografiaElenco;
         $elenco->ID_ACADEMIA=$request->get('ID_ACADEMIA');
         $elenco->NOME=$request->get('NOME');
         $elenco->DT_NASCIMENTO=$request->get('DT_NASCIMENTO');
@@ -122,8 +122,12 @@ class ElencoController extends Controller
                 $file->getClientOriginalName());
             $elenco->FOTO_ANEXO=$file->getClientOriginalName();
         }
+        $coreografiaElenco->elenco()->associate($elenco);
+        $coreografiaElenco->coreografia()->associate(Coreografia::find($request->id_inscricao));
 
+        dump($coreografiaElenco);
     	$elenco->update();
+    	$coreografiaElenco->save();
     	return Redirect::to('festival/elenco');
     }
 

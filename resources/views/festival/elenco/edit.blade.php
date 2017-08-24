@@ -74,6 +74,13 @@
 
 			   </div>
 
+			   <div class="form-group ">
+				   {!! Form::label('id_inscricao', 'Coreografia', ['class'=>'control-label col-md-3 col-sm-3 col-xs-12']) !!}
+				   <div class="col-md-6 col-sm-6 col-xs-12">
+					   {!! Form::select('id_inscricao', \sistemaLaravel\Coreografia::pluck('nomecoreografia', 'id_inscricao'), null, ['class'=>'form-control']) !!}
+				   </div>
+			   </div>
+
 			   <div class="col-lg-6 col-sm-6 col-xs-12">
 				   <div class="form-group">
 					   <label for="RG_ANEXO">Rg Anexo</label>
@@ -83,8 +90,9 @@
 						   <img src="{{asset('imagens/elencos/'.$elenco->RG_ANEXO)}}" width="200px">
 					   @endif
 				   </div>
-
 			   </div>
+
+
 
             </div>
 
