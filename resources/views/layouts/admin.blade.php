@@ -47,28 +47,17 @@
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <small class="bg-red">Online</small>
                   <span class="hidden-xs">Festival de Dança</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
-                    
                     <p>
                       Sistema Festival de Dança
                     </p>
-
                   </li>
-
-                  <li class="user-body">
-                  <p>
-                    teste teste
-                  </p>>
-
-                  </li>>
                   <!-- Menu Footer-->
                   <li class="user-footer">
-                    
                     <div class="pull-right">
                       <a href="#" class="btn btn-default btn-flat">Fechar</a>
                     </div>
@@ -90,7 +79,6 @@
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
             <li class="header"></li>
-            
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-music"></i>
@@ -103,7 +91,7 @@
                 <li><a href="/festival/coreografia"><i class="fa fa-circle-o"></i> Coreografia</a></li>
               </ul>
             </li>
-            
+
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-th"></i>
@@ -115,7 +103,6 @@
                 <li><a href=""><i class="fa fa-circle-o"></i> </a></li>
               </ul>
             </li>
-
                        
             <li class="treeview">
               <a href="#">
@@ -132,10 +119,6 @@
         </section>
         <!-- /.sidebar -->
       </aside>
-
-
-
-
 
        <!--Contenido-->
       <!-- Content Wrapper. Contains page content -->
@@ -182,7 +165,6 @@
         <strong>Copyright &copy; 2017-2020.</strong> Todos os direitos reservados.
       </footer>
 
-      
     <!-- jQuery 2.1.4 -->
     <script src="{{asset('js/jQuery-2.1.4.min.js')}}"></script>
     <!-- Bootstrap 3.3.5 -->

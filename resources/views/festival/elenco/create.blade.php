@@ -47,12 +47,12 @@
 					</div>
 				</div>
 
-            		
-            	
+
+
             	<div class="col-lg-6 col-sm-6 col-xs-12">
             		<div class="form-group">
 	            	<label for="DT_NASCIMENTO">Data de Nascimento</label>
-	            	<input type="text" name="DT_NASCIMENTO" required value="{{old('DT_NASCIMENTO')}}" class="form-control" placeholder="Data de nascimento...">
+	            	<input type="text" name="DT_NASCIMENTO" id="DT_NASCIMENTO" required value="{{old('DT_NASCIMENTO')}}" class="form-control" placeholder="Data de nascimento...">
 	            	</div>
             	</div>
             		
@@ -101,7 +101,6 @@
             	<button class="btn btn-danger" type="reset">Cancelar</button>
             </div>
 
-			{!!Form::close()!!}		
-            
-		
+			{!!Form::close()!!}
+
 @stop

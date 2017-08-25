@@ -34,7 +34,7 @@ class CoreografiaFormRequest extends FormRequest
             'duracao'=>'max:256',
             'participacao'=>'max:256',
             'musica'=>'max:256',
-            'arquivo_musica'=>'max:256',
+            'arquivo_musica'=>'mimes:mp3',
             'coreografo'=>'max:256',
             'link_youtube'=>'max:256',
             'confirmada'=>'max:256',

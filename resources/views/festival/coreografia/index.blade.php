@@ -13,36 +13,31 @@
 			<table class="table table-striped table-bordered table-condensed table-hover">
 				<thead>
 					<th>Id</th>
-					<th>Academia</th>
 					<th>Nome coreografia</th>
+					<th>Academia</th>
 					<th>Classificação</th>
 					<th>Modalidade</th>
 					<th>Categoria</th>
 					<th>Duração</th>
 					<th>Participação</th>
-					<th>Musica</th>
-					<th>Arquivo musica</th>
 					<th>Coreógrafo</th>
 					<th>Confirmada</th>
-					<th>Apresentação</th>
 					<th>Hora ensaio</th>
 					<th>Hora Apresentação</th>
+					<th>Opções</th>
 				</thead>
                @foreach ($coreografia as $core)
 				<tr>
 					<td>{{ $core->id_inscricao}}</td>
-					<td>{{ $core->ACADEMIA}}</td>
 					<td>{{ $core->nomecoreografia}}</td>
+					<td>{{ $core->ACADEMIA}}</td>
 					<td>{{ $core->classificacao}}</td>
 					<td>{{ $core->modalidade}}</td>
 					<td>{{ $core->categoria}}</td>
 					<td>{{ $core->duracao}}</td>
 					<td>{{ $core->participacao}}</td>
-					<td>{{ $core->musica}}</td>
-					<td>{{ $core->arquivo_musica}}</td>
 					<td>{{ $core->coreografo}}</td>
 					<td>{{ $core->confirmada}}</td>
-					<td>{{ $core->apresentacao}}</td>
 					<td>{{ $core->horaensaio}}</td>
 					<td>{{ $core->horaapresentacao}}</td>
 					<td>

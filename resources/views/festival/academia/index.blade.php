@@ -18,16 +18,10 @@
 					<th>Endereço</th>
 					<th>Numero</th>
 					<th>Bairro</th>
-					<th>CEP</th>
-					<th>País</th>
 					<th>Cidade</th>
 					<th>Estado</th>
-					<th>Email</th>
-					<th>Telefone</th>
 					<th>Diretor</th>
-					<th>Celular</th>
 					<th>Pago</th>
-
 				</thead>
                @foreach ($academia as $aca)
 				<tr>
@@ -37,21 +31,10 @@
 					<td>{{ $aca->ENDERECO}}</td>
 					<td>{{ $aca->NUMERO}}</td>
 					<td>{{ $aca->BAIRRO}}</td>
-					<td>{{ $aca->CEP}}</td>
-					<td>{{ $aca->PAIS}}</td>
 					<td>{{ $aca->CIDADE}}</td>
 					<td>{{ $aca->UF}}</td>
-					<td>{{ $aca->EMAIL}}</td>
-					<td>{{ $aca->TELEFONE}}</td>
 					<td>{{ $aca->DIRETOR}}</td>
-					<td>{{ $aca->CELULAR}}</td>
-
 					<td>{{ $aca->PAGO}}</td>
-
-
-
-
-
 					<td>
 						<a href="{{URL::action('AcademiaController@edit',$aca->ID)}}"><button class="btn btn-info">Editar</button></a>
 						<a href="" data-target="#modal-delete-{{$aca->ID}}" data-toggle="modal"><button class="btn btn-danger">Excluir</button></a>

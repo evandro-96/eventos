@@ -130,7 +130,7 @@
 				<div class="col-lg-6 col-sm-6 col-xs-12">
 					<div class="form-group">
 						<label for="link_youtube">Link Youtube</label>
-						<input type="text" name="link_youtube" required value="{{$coreografia->link_youtube}}" class="form-control" placeholder="Link YouTube...">
+						<input type="text" name="link_youtube"  value="{{$coreografia->link_youtube}}" class="form-control" placeholder="Link YouTube...">
 					</div>
 				</div>
 				<div class="col-lg-6 col-sm-6 col-xs-12">
@@ -167,13 +167,14 @@
 				<th>ID</th>
 				<th>Participante</th>
 				<th>Categoria</th>
+				<th>Opções</th>
 				</thead>
 					@foreach ($coreografiaElenco as $corEle)
 						@if($corEle->ID_COREOGRAFIA == $coreografia->id_inscricao)
 						<tr>
 							<td>{{ $corEle->ID}}</td>
 							<td>{{ $corEle->elenco['NOME']}}</td>
-							<td>Categoria</td>
+							<td>{{ $corEle->elenco['DT_NASCIMENTO']}}</td>
 							<td>
 								<a href="{{URL::action('CoreografiaController@destroyCoreografiaElenco',$corEle->ID)}}" ><button class="btn btn-danger">Excluir</button></a>
 							</td>

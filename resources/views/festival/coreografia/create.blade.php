@@ -40,6 +40,7 @@
 			<div class="form-group">
 				<label>Classificação</label>
 				<select name="classificacao" class="form-control">
+					<option value=""></option>
 					<option value="Competição">Competição</option>
 					<option value="Mostra Avaliada">Mostra Avaliada</option>
 					<option value="Ambas">Ambas</option>
@@ -47,7 +48,8 @@
 			</div>
 			<div class="form-group">
 				<label>Modalidade</label>
-				<select name="modalidade" class="form-control">
+				<select name="modalidade" class="form-control" required>
+					<option value=""></option>
 					<option value="Ballet Clássico/Neoclássico">Ballet Clássico/Neoclássico</option>
 					<option value="Dança Moderna/Contemporânea">Dança Moderna/Contemporânea</option>
 					<option value="Ballet Clássico de Repertório">Ballet Clássico de Repertório</option>
@@ -58,7 +60,8 @@
 			</div>
 			<div class="form-group">
 				<label>Categoria</label>
-				<select name="categoria" class="form-control">
+				<select name="categoria" class="form-control" required>
+					<option value=""></option>
 					<option value="Infantil">Infantil</option>
 					<option value="Juvenil">Juvenil</option>
 					<option value="Juvenil Avançado">Juvenil Avançado</option>
@@ -67,11 +70,12 @@
 			</div>
 			<div class="form-group">
 				<label for="duracao">Duração</label>
-				<input type="text" name="duracao" class="form-control" placeholder="Duração...">
+				<input type="text" name="duracao" class="form-control" placeholder="Duração..." required>
 			</div>
 			<div class="form-group">
 				<label>Participação</label>
-				<select name="participacao" class="form-control">
+				<select name="participacao" class="form-control" required>
+					<option value=""></option>
 					<option value="SOLO">Solo</option>
 					<option value="DUO">Duo</option>
 					<option value="TRIO">Trio</option>
@@ -80,15 +84,18 @@
 			</div>
 			<div class="form-group">
 				<label for="musica">Música</label>
-				<input type="text" name="musica" class="form-control" placeholder="Música...">
+				<input type="text" name="musica" class="form-control" placeholder="Música..." required>
 			</div>
+
 			<div class="form-group">
-				<label for="arquivo_musica">Arquivo Musica</label>
-				<input type="text" name="arquivo_musica" class="form-control" placeholder="Arquivo musica...">
+				<label for="arquivo_musica">Arquivo Música</label>
+				<input type="file" name="arquivo_musica"
+					   class="form-control">
 			</div>
+
 			<div class="form-group">
 				<label for="coreografo">Coreógrafo</label>
-				<input type="text" name="coreografo" class="form-control" placeholder="Coreógrafo...">
+				<input type="text" name="coreografo" class="form-control" placeholder="Coreógrafo..." required>
 			</div>
 			<div class="form-group">
 				<label for="link_youtube">Link YouTube</label>
@@ -96,7 +103,7 @@
 			</div>
 			<div class="form-group">
 				<label>Confirmada</label>
-				<select name="confirmada" class="form-control">
+				<select name="confirmada" class="form-control" required>
 					<option value="NÃO">Não</option>
 					<option value="SIM">SIM</option>
 				</select>
@@ -107,11 +114,11 @@
 			</div>
 			<div class="form-group">
 				<label for="horaensaio">Hora ensaio</label>
-				<input type="text" name="horaensaio" class="form-control" placeholder="Hora Ensaio...">
+				<input type="text" name="horaensaio" class="form-control" placeholder="Hora Ensaio..." required>
 			</div>
 			<div class="form-group">
 				<label for="horaapresentacao">Hora Apresentação</label>
-				<input type="text" name="horaapresentacao" class="form-control" placeholder="Hora Apresentação...">
+				<input type="text" name="horaapresentacao" class="form-control" placeholder="Hora Apresentação..." required>
 			</div>
             <div class="form-group">
             	<button class="btn btn-primary" type="submit">Salvar</button>
