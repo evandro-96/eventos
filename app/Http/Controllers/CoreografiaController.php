@@ -28,7 +28,7 @@ class CoreografiaController extends Controller
                 ->select('fc.id_inscricao', 'fa.ACADEMIA', 'fc.nomecoreografia',
                     'fc.classificacao', 'fa.ACADEMIA as festival_academia', 'fc.modalidade',
                     'fc.categoria', 'fc.duracao', 'fc.participacao', 'fc.musica', 'fc.arquivo_musica'
-                    , 'fc.coreografo', 'fc.link_youtube', 'fc.confirmada', 'fc.apresentacao', 'fc.horaensaio', 'fc.horaapresentacao')
+                    , 'fc.coreografo', 'fc.link_youtube', 'fc.confirmada', 'fc.apresentacao', 'fc.horaensaio', 'fc.horaapresentacao', 'fc.dataapresentacao')
                 ->where('fc.nomecoreografia', 'LIKE', '%'.$query.'%')
                 ->orwhere('fc.classificacao', 'LIKE', '%'.$query.'%')
                 ->orwhere('fc.categoria', 'LIKE', '%'.$query.'%')

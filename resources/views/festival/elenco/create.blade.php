@@ -24,7 +24,7 @@
             	<div class="col-lg-6 col-sm-6 col-xs-12">
 	            	<div class="form-group">
 	            	<label for="NOME">Nome</label>
-	            	<input type="text" name="NOME" required value="{{old('NOME')}}" class="form-control" placeholder="Nome...">
+	            	<input type="text" name="NOME"onblur="" required value="{{old('NOME')}}" class="form-control" placeholder="Nome...">
 	            	</div>
             	</div>
 
@@ -51,7 +51,7 @@
 
             	<div class="col-lg-6 col-sm-6 col-xs-12">
             		<div class="form-group">
-	            	<label for="DT_NASCIMENTO">Data de Nascimento</label>
+	            	<label for="DT_NASCIMENTO">Data de Nascimento(99/99/999)</label>
 	            	<input type="text" name="DT_NASCIMENTO" id="DT_NASCIMENTO" required value="{{old('DT_NASCIMENTO')}}" class="form-control" placeholder="Data de nascimento...">
 	            	</div>
             	</div>
@@ -66,7 +66,7 @@
             	<div class="col-lg-6 col-sm-6 col-xs-12">
             		 <div class="form-group">
 						<label for="RG_ANEXO">Rg Anexo</label>
-						<input type="file" name="RG_ANEXO"
+						<input type="file" name="RG_ANEXO" required="required"
 						class="form-control">
             		</div>
             	</div>
@@ -74,7 +74,7 @@
 				<div class="col-lg-6 col-sm-6 col-xs-12">
 					<div class="form-group">
 						<label for="CPF_ANEXO">Cpf Anexo</label>
-						<input type="file" name="CPF_ANEXO"
+						<input type="file" name="CPF_ANEXO" required="required"
 							   class="form-control">
 					</div>
 				</div>
@@ -82,7 +82,7 @@
 				<div class="col-lg-6 col-sm-6 col-xs-12">
 					<div class="form-group">
 						<label for="FOTO_ANEXO">Foto Anexo</label>
-						<input type="file" name="FOTO_ANEXO"
+						<input type="file" name="FOTO_ANEXO" required="required"
 							   class="form-control">
 					</div>
 				</div>

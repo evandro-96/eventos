@@ -24,6 +24,7 @@
 					<th>Confirmada</th>
 					<th>Hora ensaio</th>
 					<th>Hora Apresentação</th>
+					<th>Data Apresentação</th>
 					<th>Opções</th>
 				</thead>
                @foreach ($coreografia as $core)
@@ -40,6 +41,7 @@
 					<td>{{ $core->confirmada}}</td>
 					<td>{{ $core->horaensaio}}</td>
 					<td>{{ $core->horaapresentacao}}</td>
+					<td>{{Carbon\Carbon::parse($core->dataapresentacao)->format('d/m/Y')}}</td>
 					<td>
 						<a href="{{URL::action('CoreografiaController@edit',$core->id_inscricao)}}"><button class="btn btn-info">Editar</button></a>
 						<a href="" data-target="#modal-delete-{{$core->id_inscricao}}" data-toggle="modal"><button class="btn btn-danger">Excluir</button></a>
