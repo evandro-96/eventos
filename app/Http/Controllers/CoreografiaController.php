@@ -107,5 +107,12 @@ class CoreografiaController extends Controller
     	return Redirect::to('festival/coreografia');
     }
 
+    public function destroyCoreografiaElenco($id){
+        $coreografiaElenco=CoreografiaElenco::findOrFail($id);
+        $coreografiaElenco->delete();
+//        dump($coreografiaElenco);
+        return back();
+    }
+
 
 }

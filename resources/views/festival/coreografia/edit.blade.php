@@ -175,10 +175,11 @@
 							<td>{{ $corEle->elenco['NOME']}}</td>
 							<td>Categoria</td>
 							<td>
-								<a href="" data-target="#modal-delete-{{$corEle->ID}}" data-toggle="modal"><button class="btn btn-danger">Excluir</button></a>
+								<a href="{{URL::action('CoreografiaController@destroyCoreografiaElenco',$corEle->ID)}}" ><button class="btn btn-danger">Excluir</button></a>
 							</td>
 						</tr>
 						@endif
+					@include('festival.coreografia.modalCoreografiaElenco')
 					@endforeach
 			</table>
 		</div>
