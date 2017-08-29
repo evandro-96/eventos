@@ -48,4 +48,8 @@ class Coreografia extends Model
         return $this->hasMany('sistemaLaravel\CoreografiaElenco', 'ID_COREOGRAFIA');
     }
 
+    public function coreografiaJurado()
+    {
+        return $this->hasMany('sistemaLaravel\CoreografiaJurado', 'id_jurado');
+    }
 }
