@@ -49,10 +49,12 @@ class ElencoController extends Controller
  
     public function store(ElencoFormRequest $request){
     	$elenco = new Elenco;
+        $data = explode('/', $request->DT_NASCIMENTO);
+        $toCarbon = Carbon::parse();
         $coreografiaElenco = new CoreografiaElenco;
     	$elenco->ID_ACADEMIA=$request->get('ID_ACADEMIA');
     	$elenco->NOME=$request->get('NOME');
-    	$elenco->DT_NASCIMENTO=$request->get('DT_NASCIMENTO');
+    	$elenco->DT_NASCIMENTO= Carbon::create($data[2], $data[1], $data[0]);
     	$elenco->RG=$request->get('RG');
 
         if(Input::hasFile('RG_ANEXO')){
@@ -99,10 +101,11 @@ class ElencoController extends Controller
 
     public function update(ElencoFormRequest $request, $id){
     	$elenco=Elenco::findOrFail($id);
+        $data = explode('/', $request->DT_NASCIMENTO);
         $coreografiaElenco = new CoreografiaElenco;
         $elenco->ID_ACADEMIA=$request->get('ID_ACADEMIA');
         $elenco->NOME=$request->get('NOME');
-        $elenco->DT_NASCIMENTO=$request->get('DT_NASCIMENTO');
+        $elenco->DT_NASCIMENTO= Carbon::create($data[2], $data[1], $data[0]);
         $elenco->RG=$request->get('RG');
         if(Input::hasFile('RG_ANEXO')){
             $file=Input::file('RG_ANEXO');
