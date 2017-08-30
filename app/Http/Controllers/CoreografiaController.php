@@ -8,14 +8,14 @@ use Illuminate\Support\Facades\Redirect;
 use sistemaLaravel\Coreografia;
 use sistemaLaravel\CoreografiaElenco;
 use sistemaLaravel\Elenco;
-use sistemaLaravel\Http\Requests\AcademiaFormRequest;
 use DB;
 use sistemaLaravel\Http\Requests\CoreografiaFormRequest;
+use Carbon\Carbon;
 
 class CoreografiaController extends Controller
 {
     public function __construct(){
-    	//
+
     }
 
     public function index(Request $request){
@@ -47,6 +47,7 @@ class CoreografiaController extends Controller
  
     public function store(CoreografiaFormRequest $request){
     	$coreografia = new Coreografia();
+        $data = explode('/', $request->dataapresentacao);
         $coreografia->nomecoreografia=$request->get('nomecoreografia');
         $coreografia->id_academia=$request->get('id_academia');
         $coreografia->classificacao=$request->get('classificacao');
@@ -61,7 +62,7 @@ class CoreografiaController extends Controller
         $coreografia->confirmada=$request->get('confirmada');
         $coreografia->horaensaio=$request->get('horaensaio');
         $coreografia->horaapresentacao=$request->get('horaapresentacao');
-        $coreografia->dataapresentacao=$request->get('dataapresentacao');
+        $coreografia->dataapresentacao= Carbon::create($data[2], $data[1], $data[0]);
         $coreografia->save();
     	return Redirect::to('festival/coreografia');
     }
@@ -84,6 +85,7 @@ class CoreografiaController extends Controller
 
     public function update(CoreografiaFormRequest $request, $id){
         $coreografia=Coreografia::findOrFail($id);
+        $data = explode('/', $request->dataapresentacao);
         $coreografia->nomecoreografia=$request->get('nomecoreografia');
         $coreografia->id_academia=$request->get('id_academia');
         $coreografia->classificacao=$request->get('classificacao');
@@ -96,7 +98,7 @@ class CoreografiaController extends Controller
         $coreografia->coreografo=$request->get('coreografo');
         $coreografia->link_youtube=$request->get('link_youtube');
         $coreografia->confirmada=$request->get('confirmada');
-        $coreografia->dataapresentacao=$request->get('dataapresentacao');
+        $coreografia->dataapresentacao= Carbon::create($data[2], $data[1], $data[0]);
         $coreografia->update();
     	return Redirect::to('festival/coreografia');
     }

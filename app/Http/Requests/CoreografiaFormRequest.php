@@ -38,7 +38,7 @@ class CoreografiaFormRequest extends FormRequest
             'coreografo'=>'max:256',
             'link_youtube'=>'max:256',
             'confirmada'=>'max:256',
-            'dataapresentacao'=>'99/99/9999',
+            'dataapresentacao'=>'max:10',
         ];
     }
 }
