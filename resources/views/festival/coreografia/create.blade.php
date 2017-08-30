@@ -57,6 +57,9 @@
 					<option value="Dança Livre">Dança Livre</option>
 					<option value="Jazz">Jazz</option>
 					<option value="Folclore de Projeção">Folclore de Projeção</option>
+					<option value="Folclore de Imigração">Folclore de Imigração</option>
+					<option value="Danças Urbanas">Danças Urbanas</option>
+					<option value="Danças de Salão">Danças de Salão</option>
 				</select>
 			</div>
 			<div class="form-group">
@@ -105,17 +108,9 @@
 			<div class="form-group">
 				<label>Confirmada</label>
 				<select name="confirmada" class="form-control" required>
-					<option value="NÃO">Não</option>
+					<option value="NÃO">NÃO</option>
 					<option value="SIM">SIM</option>
 				</select>
-			</div>
-			<div class="form-group">
-				<label for="apresentacao">Apresentação</label>
-				<input type="text" name="apresentacao" class="form-control" placeholder="Apresentação...">
-			</div>
-			<div class="form-group">
-				<label for="horaensaio">Hora ensaio</label>
-				<input type="text" name="horaensaio" class="form-control" placeholder="Hora Ensaio..." required>
 			</div>
 			<div class="form-group">
 				<label for="horaapresentacao">Hora Apresentação</label>

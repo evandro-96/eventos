@@ -75,11 +75,10 @@ class ElencoController extends Controller
                 $file->getClientOriginalName());
             $elenco->FOTO_ANEXO=$file->getClientOriginalName();
         }
-//        dump($elenco);
         $elenco->save();
         $coreografiaElenco->elenco()->associate($elenco);
         $coreografiaElenco->coreografia()->associate(Coreografia::find($request->id_inscricao));
-//        dump($coreografiaElenco);
+
     	$coreografiaElenco->save();
     	return Redirect::to('festival/elenco');
     }
@@ -127,8 +126,6 @@ class ElencoController extends Controller
         }
         $coreografiaElenco->elenco()->associate($elenco);
         $coreografiaElenco->coreografia()->associate(Coreografia::find($request->id_inscricao));
-
-        dump($coreografiaElenco);
     	$elenco->update();
     	$coreografiaElenco->save();
     	return Redirect::to('festival/elenco');

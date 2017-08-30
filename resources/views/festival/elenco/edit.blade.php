@@ -173,7 +173,6 @@
         return true;
     }
 </script>
-
 			{!!Form::close()!!}		
             
 	
