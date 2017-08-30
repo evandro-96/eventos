@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class CoreografiaJurado extends Model
 {
     protected $table = 'festival_coreografia_jurados';
+    public $timestamps = false;
 
     public function jurado()
     {
@@ -15,6 +16,6 @@ class CoreografiaJurado extends Model
 
     public function coreografia()
     {
-        return $this->belongsTo('sistemaLaravel\Coreografia', 'id_academia');
+        return $this->belongsTo('sistemaLaravel\Coreografia', 'id_inscricao');
     }
 }

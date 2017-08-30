@@ -16,7 +16,7 @@ class FestivalCoreografiaJurados extends Migration
         Schema::create('festival_coreografia_jurados', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_jurado')->unsigned();
-            $table->integer('id_academia')->unsigned();
+            $table->integer('id_inscricao')->unsigned();
             $table->string('tipo');
             $table->integer('nota_01')->nullable();
             $table->integer('nota_02')->nullable();
@@ -28,7 +28,7 @@ class FestivalCoreografiaJurados extends Migration
 
             $table->foreign('id_jurado')->references('id')
                 ->on('festival_jurados')->onDelete('cascade');
-            $table->foreign('id_academia')->references('id_academia')
+            $table->foreign('id_inscricao')->references('id_inscricao')
                 ->on('festival_coreografia')->onDelete('cascade');
         });
     }

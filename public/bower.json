@@ -1,0 +1,18 @@
+{
+  "name": "eventos",
+  "homepage": "https://github.com/evandro-96/eventos",
+  "authors": [
+    "lucasszmt"
+  ],
+  "description": "Sistema de eventos da prefeitura.",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -95,11 +95,11 @@
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-th"></i>
-                <span>Relatórios</span>
+                <span>Avaliação</span>
                  <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href=""><i class="fa fa-circle-o"></i> Notas </a></li>
+                <li><a href="{{ route('avaliacao.avaliar') }}"><i class="fa fa-circle-o"></i> Avaliar </a></li>
                 <li><a href=""><i class="fa fa-circle-o"></i> </a></li>
               </ul>
             </li>
