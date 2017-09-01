@@ -20,7 +20,7 @@
 
     @yield('links')
   </head>
-  <body class="hold-transition skin-blue sidebar-mini">
+  <body class="hold-transition skin-green sidebar-mini">
     <div class="wrapper">
 
       <header class="main-header">
@@ -142,7 +142,7 @@
                 <div class="box-body">
                   	<div class="row">
 	                  	<div class="col-md-12">
-		                          <!--Conteudo-->
+
                               @yield('conteudo')
 		                          <!--Fim Conteudo-->
                            </div>

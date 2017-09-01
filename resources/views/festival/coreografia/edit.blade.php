@@ -284,12 +284,12 @@
 							   onkeypress="mascaraData(this)" class="form-control" placeholder="Data Apresentação...">
 					</div>
 				</div>
-				<div class="col-lg-6 col-sm-12 col-xs-12">
-					<div class="form-group">
-						<label for="resumo">Release</label>
-						<textarea name="comentarios" id="" cols="30" rows="10" class="form-control">{{$coreografia->resumo}}</textarea>
-					</div>
-				</div>
+				{{--<div class="col-lg-6 col-sm-12 col-xs-12">--}}
+					{{--<div class="form-group">--}}
+						{{--<label for="resumo">Release</label>--}}
+						{{--<input type="text" name="resumo"  value="{{$coreografia->resumo}}" class="form-control" placeholder="Duração...">--}}
+					{{--</div>--}}
+				{{--</div>--}}
 			</div>
 
 

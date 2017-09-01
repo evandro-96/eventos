@@ -97,20 +97,16 @@
 				<input type="text" name="CELULAR" class="form-control" placeholder="Celular...">
 			</div>
 			<div class="form-group">
-				<label for="USER">Usuario</label>
-				<input type="text" name="USER" class="form-control" placeholder="Usuario...">
-			</div>
-			<div class="form-group">
-				<label for="PASS">Senha</label>
-				<input type="text" name="PASS" class="form-control" placeholder="Senha...">
-			</div>
-			<div class="form-group">
 				<label for="COMPROVANTE">Comprovante</label>
-				<input type="text" name="COMPROVANTE" class="form-control" placeholder="Comprovante...">
+				<input type="file" name="COMPROVANTE" class="form-control">
 			</div>
+
 			<div class="form-group">
-				<label for="PAGO">Pago(s/n)</label>
-				<input type="text" name="PAGO" class="form-control" placeholder="Pago...">
+				<label for="PAGO">Pago</label>
+				<select name="PAGO" class="form-control" required>
+					<option value="s">Sim</option>
+					<option value="n" selected>Não</option>
+				</select>
 			</div>
 			<div class="form-group">
 				<label for="CPF">CPF</label>
