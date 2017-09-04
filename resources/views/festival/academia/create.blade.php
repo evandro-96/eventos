@@ -48,8 +48,37 @@
 				<input type="text" name="CIDADE" class="form-control" placeholder="Cidade...">
 			</div>
 			<div class="form-group">
-				<label for="UF">UF</label>
-				<input type="text" name="UF" class="form-control" placeholder="UF...">
+				<label>Estado</label>
+				<select name="UF" class="form-control" required>
+					<option value="">Selecione o Estado</option>
+					<option value="AC">Acre</option>
+					<option value="AL">Alagoas</option>
+					<option value="AM">Amazonas</option>
+					<option value="AP">Amapá</option>
+					<option value="BA">Bahia</option>
+					<option value="CE">Ceará</option>
+					<option value="DF">Distrito Federal</option>
+					<option value="ES">Espírito Santo</option>
+					<option value="GO">Goiás</option>
+					<option value="MA">Maranhão</option>
+					<option value="MT">Mato Grosso</option>
+					<option value="MS">Mato Grosso do Sul</option>
+					<option value="MG">Minas Gerais</option>
+					<option value="PA">Pará</option>
+					<option value="PB">Paraíba</option>
+					<option value="PR">Paraná</option>
+					<option value="PE">Pernambuco</option>
+					<option value="PI">Piauí</option>
+					<option value="RJ">Rio de Janeiro</option>
+					<option value="RN">Rio Grande do Norte</option>
+					<option value="RO">Rondônia</option>
+					<option value="RS">Rio Grande do Sul</option>
+					<option value="RR">Roraima</option>
+					<option value="SC">Santa Catarina</option>
+					<option value="SE">Sergipe</option>
+					<option value="SP">São Paulo</option>
+					<option value="TO">Tocantins</option>
+				</select>
 			</div>
 			<div class="form-group">
 				<label for="EMAIL">Email</label>
@@ -68,20 +97,16 @@
 				<input type="text" name="CELULAR" class="form-control" placeholder="Celular...">
 			</div>
 			<div class="form-group">
-				<label for="USER">Usuario</label>
-				<input type="text" name="USER" class="form-control" placeholder="Usuario...">
-			</div>
-			<div class="form-group">
-				<label for="PASS">Senha</label>
-				<input type="text" name="PASS" class="form-control" placeholder="Senha...">
-			</div>
-			<div class="form-group">
 				<label for="COMPROVANTE">Comprovante</label>
-				<input type="text" name="COMPROVANTE" class="form-control" placeholder="Comprovante...">
+				<input type="file" name="COMPROVANTE" class="form-control">
 			</div>
+
 			<div class="form-group">
-				<label for="PAGO">Pago(s/n)</label>
-				<input type="text" name="PAGO" class="form-control" placeholder="Pago...">
+				<label for="PAGO">Pago</label>
+				<select name="PAGO" class="form-control" required>
+					<option value="s">Sim</option>
+					<option value="n" selected>Não</option>
+				</select>
 			</div>
 			<div class="form-group">
 				<label for="CPF">CPF</label>

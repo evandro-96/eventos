@@ -22,6 +22,7 @@
 					<th>Estado</th>
 					<th>Diretor</th>
 					<th>Pago</th>
+					<th>Opções</th>
 				</thead>
                @foreach ($academia as $aca)
 				<tr>

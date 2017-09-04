@@ -21,7 +21,7 @@ class AcademiaController extends Controller
     		$academias=DB::table('festival_academia')
     		->where('ACADEMIA', 'LIKE', '%'.$query.'%')
     		->orderBy('ID', 'asc')
-    		->paginate(15);
+    		->paginate(25);
     		return view('festival.academia.index', [
     			"academia"=>$academias, "searchText"=>$query
     			]);

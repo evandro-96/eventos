@@ -39,30 +39,33 @@
 			</div>
 
 			<div class="form-group">
-				<label>Classificação</label>
+				<label>Modalidade</label>
 				<select name="classificacao" class="form-control" required>
-					<option value=""></option>
+					<option value="">Selecione a modalidade</option>
 					<option value="Competição">Competição</option>
 					<option value="Mostra Avaliada">Mostra Avaliada</option>
 					<option value="Ambas">Ambas</option>
 				</select>
 			</div>
 			<div class="form-group">
-				<label>Modalidade</label>
+				<label>Gênero</label>
 				<select name="modalidade" class="form-control" required>
-					<option value=""></option>
+					<option value="">Selecione o genero</option>
 					<option value="Ballet Clássico/Neoclássico">Ballet Clássico/Neoclássico</option>
 					<option value="Dança Moderna/Contemporânea">Dança Moderna/Contemporânea</option>
 					<option value="Ballet Clássico de Repertório">Ballet Clássico de Repertório</option>
 					<option value="Dança Livre">Dança Livre</option>
 					<option value="Jazz">Jazz</option>
 					<option value="Folclore de Projeção">Folclore de Projeção</option>
+					<option value="Folclore de Imigração">Folclore de Imigração</option>
+					<option value="Danças Urbanas">Danças Urbanas</option>
+					<option value="Danças de Salão">Danças de Salão</option>
 				</select>
 			</div>
 			<div class="form-group">
 				<label>Categoria</label>
 				<select name="categoria" class="form-control" required>
-					<option value=""></option>
+					<option value="">Selecione a categoria</option>
 					<option value="Infantil">Infantil</option>
 					<option value="Juvenil">Juvenil</option>
 					<option value="Juvenil Avançado">Juvenil Avançado</option>
@@ -76,11 +79,11 @@
 			<div class="form-group">
 				<label>Participação</label>
 				<select name="participacao" class="form-control" required>
-					<option value=""></option>
+					<option value="">Selecione a participação</option>
 					<option value="SOLO">Solo</option>
 					<option value="DUO">Duo</option>
 					<option value="TRIO">Trio</option>
-					<option value="GRUPO/CONJUNTO">Grupo/Conjunto</option>
+					<option value="CONJUNTO">Conjunto</option>
 				</select>
 			</div>
 			<div class="form-group">
@@ -105,17 +108,9 @@
 			<div class="form-group">
 				<label>Confirmada</label>
 				<select name="confirmada" class="form-control" required>
-					<option value="NÃO">Não</option>
+					<option value="NÃO">NÃO</option>
 					<option value="SIM">SIM</option>
 				</select>
-			</div>
-			<div class="form-group">
-				<label for="apresentacao">Apresentação</label>
-				<input type="text" name="apresentacao" class="form-control" placeholder="Apresentação...">
-			</div>
-			<div class="form-group">
-				<label for="horaensaio">Hora ensaio</label>
-				<input type="text" name="horaensaio" class="form-control" placeholder="Hora Ensaio..." required>
 			</div>
 			<div class="form-group">
 				<label for="horaapresentacao">Hora Apresentação</label>
@@ -124,6 +119,10 @@
 			<div class="form-group">
 				<label for="dataapresentacao">Data Apresentação(99/99/9999)</label>
 				<input type="text" name="dataapresentacao" class="form-control" onkeypress="mascaraData(this)" placeholder="Data Apresentação..." required>
+			</div>
+			<div class="form-group">
+				<label for="resumo">Release</label>
+				<textarea name="resumo" id="" cols="30" rows="10" class="form-control"></textarea>
 			</div>
             <div class="form-group">
             	<button class="btn btn-primary" type="submit">Salvar</button>

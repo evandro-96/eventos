@@ -20,7 +20,7 @@
 
     @yield('links')
   </head>
-  <body class="hold-transition skin-blue sidebar-mini">
+  <body class="hold-transition skin-green sidebar-mini">
     <div class="wrapper">
 
       <header class="main-header">
@@ -104,16 +104,16 @@
               </ul>
             </li>
                        
-            <li class="treeview">
-              <a href="#">
-                <i class="fa fa-folder"></i> <span>Login</span>
-                <i class="fa fa-angle-left pull-right"></i>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="configuracao/usuario"><i class="fa fa-circle-o"></i> Usuarios</a></li>
-                
-              </ul>
-            </li>
+            {{--<li class="treeview">--}}
+              {{--<a href="#">--}}
+                {{--<i class="fa fa-folder"></i> <span>Login</span>--}}
+                {{--<i class="fa fa-angle-left pull-right"></i>--}}
+              {{--</a>--}}
+              {{--<ul class="treeview-menu">--}}
+                {{--<li><a href="configuracao/usuario"><i class="fa fa-circle-o"></i> Usuarios</a></li>--}}
+                {{----}}
+              {{--</ul>--}}
+            {{--</li>--}}
                         
           </ul>
         </section>
@@ -142,7 +142,7 @@
                 <div class="box-body">
                   	<div class="row">
 	                  	<div class="col-md-12">
-		                          <!--Conteudo-->
+
                               @yield('conteudo')
 		                          <!--Fim Conteudo-->
                            </div>

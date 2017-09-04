@@ -19,7 +19,6 @@ class CoreografiaController extends Controller
     }
 
     public function index(Request $request){
-
     	if($request){
             $query=trim($request->get('searchText'));
             $coreografias=DB::table('festival_coreografia as fc')
@@ -32,7 +31,8 @@ class CoreografiaController extends Controller
                 ->where('fc.nomecoreografia', 'LIKE', '%'.$query.'%')
                 ->orwhere('fc.classificacao', 'LIKE', '%'.$query.'%')
                 ->orwhere('fc.categoria', 'LIKE', '%'.$query.'%')
-                ->orderBy('id_inscricao', 'asc')
+                ->orwhere('fa.ACADEMIA', 'LIKE', '%'.$query.'%')
+                ->orderBy('fa.ACADEMIA', 'asc')
                 ->paginate(25);
             return view('festival.coreografia.index', [
                 "coreografia"=>$coreografias, "searchText"=>$query
@@ -60,9 +60,9 @@ class CoreografiaController extends Controller
         $coreografia->coreografo=$request->get('coreografo');
         $coreografia->link_youtube=$request->get('link_youtube');
         $coreografia->confirmada=$request->get('confirmada');
-        $coreografia->horaensaio=$request->get('horaensaio');
         $coreografia->horaapresentacao=$request->get('horaapresentacao');
         $coreografia->dataapresentacao= Carbon::create($data[2], $data[1], $data[0]);
+        $coreografia->resumo=$request->get('resumo');
         $coreografia->save();
     	return Redirect::to('festival/coreografia');
     }
@@ -77,6 +77,7 @@ class CoreografiaController extends Controller
         $academias = Academia::all();
         $elenco = Elenco::first()->get();
         $coreografiaElenco = CoreografiaElenco::all();
+
 
         return view("festival.coreografia.edit",
             ["coreografia"=>$coreografia, "academias"=>$academias,
@@ -99,6 +100,8 @@ class CoreografiaController extends Controller
         $coreografia->link_youtube=$request->get('link_youtube');
         $coreografia->confirmada=$request->get('confirmada');
         $coreografia->dataapresentacao= Carbon::create($data[2], $data[1], $data[0]);
+//        $coreografia->resumo=$request->get('resumo');
+//        dump($coreografia);
         $coreografia->update();
     	return Redirect::to('festival/coreografia');
     }

@@ -62,14 +62,149 @@
 			<div class="form-group">
 				<label for="CIDADE">Cidade</label>
 				<input type="text" name="CIDADE" class="form-control"
-					   value="{{ $academia->CIDADE }}"
+					   value="{{$academia->CIDADE}}"
 					   placeholder="Cidade...">
 			</div>
 			<div class="form-group">
-				<label for="UF">Estado</label>
-				<input type="text" name="ESTADO" class="form-control"
-					   value="{{ $academia->ESTADO }}"
-					   placeholder="Estado...">
+				<label>Estado</label>
+				<select name="UF" class="form-control" required>
+					<option value="">Selecione o Estado</option>
+					@if($academia->UF == "AC")
+						<option value="AC" selected>Acre</option>
+					@else
+						<option value="AC">Acre</option>
+					@endif
+					@if($academia->UF == "AL")
+						<option value="AL" selected>Alagoas</option>
+					@else
+						<option value="AL">Alagoas</option>
+					@endif
+					@if($academia->UF == "AM")
+						<option value="AM" selected>Amazonas</option>
+					@else
+						<option value="AM">Amazonas</option>
+					@endif
+					@if($academia->UF == "AP")
+						<option value="AP" selected>Amapá</option>
+					@else
+						<option value="AP">Amapá</option>
+					@endif
+					@if($academia->UF == "BA")
+						<option value="BA" selected>Bahia</option>
+					@else
+						<option value="BA">Bahia</option>
+					@endif
+					@if($academia->UF == "CE")
+						<option value="CE" selected>Ceará</option>
+					@else
+						<option value="CE">Ceará</option>
+					@endif
+					@if($academia->UF == "DF")
+						<option value="DF" selected>Distrito Federal</option>
+					@else
+						<option value="DF">Distrito Federal</option>
+					@endif
+					@if($academia->UF == "ES")
+						<option value="ES" selected>Espirito Santo</option>
+					@else
+						<option value="ES">Espirito Santo</option>
+					@endif
+					@if($academia->UF == "GO")
+						<option value="GO" selected>Goiás</option>
+					@else
+						<option value="GO">Goiás</option>
+					@endif
+					@if($academia->UF == "MA")
+						<option value="MA" selected>Maranhão</option>
+					@else
+						<option value="MA">Maranhão</option>
+					@endif
+					@if($academia->UF == "MT")
+						<option value="MT" selected>Mato Grosso</option>
+					@else
+						<option value="MT">Mato Grosso</option>
+					@endif
+					@if($academia->UF == "MS")
+						<option value="MS" selected>Mato Grosso do Sul</option>
+					@else
+						<option value="MS">Mato Grosso do Sul</option>
+					@endif
+					@if($academia->UF == "MG")
+						<option value="MG" selected>Minas Gerais</option>
+					@else
+						<option value="MG">Minas Gerais</option>
+					@endif
+					@if($academia->UF == "PA")
+						<option value="PA" selected>Pará</option>
+					@else
+						<option value="PA">Pará</option>
+					@endif
+					@if($academia->UF == "PB")
+						<option value="PB" selected>Paraíba</option>
+					@else
+						<option value="PB">Paraíba</option>
+					@endif
+					@if($academia->UF == "PR")
+						<option value="PR" selected>Paraná</option>
+					@else
+						<option value="PR">Paraná</option>
+					@endif
+					@if($academia->UF == "PE")
+						<option value="PE" selected>Pernambuco</option>
+					@else
+						<option value="PE">Pernambuco</option>
+					@endif
+					@if($academia->UF == "PI")
+						<option value="PI" selected>Piauí</option>
+					@else
+						<option value="PI">Piauí</option>
+					@endif
+					@if($academia->UF == "RJ")
+						<option value="RJ" selected>Rio de Janeiro</option>
+					@else
+						<option value="RJ">Rio de Janeiro</option>
+					@endif
+					@if($academia->UF == "RN")
+						<option value="RN" selected>Rio Grande do Norte</option>
+					@else
+						<option value="RN">Rio Grande do Norte</option>
+					@endif
+					@if($academia->UF == "RO")
+						<option value="RO" selected>Rondônia</option>
+					@else
+						<option value="RO">Rondônia</option>
+					@endif
+					@if($academia->UF == "RS")
+						<option value="RS" selected>Rio Grande do Sul</option>
+					@else
+						<option value="RS">Rio Grande do Sul</option>
+					@endif
+					@if($academia->UF == "RR")
+						<option value="RR" selected>Roraima</option>
+					@else
+						<option value="RR">Roraima</option>
+					@endif
+					@if($academia->UF == "SC")
+						<option value="SC" selected>Santa Catarina</option>
+					@else
+						<option value="SC">Santa Catarina</option>
+					@endif
+					@if($academia->UF == "SE")
+						<option value="SE" selected>Sergipe</option>
+					@else
+						<option value="SE">Sergipe</option>
+					@endif
+					@if($academia->UF == "SP")
+						<option value="SP" selected>São Paulo</option>
+					@else
+						<option value="SP">São Paulo</option>
+					@endif
+					@if($academia->UF == "TO")
+						<option value="TO" selected>Tocantins</option>
+					@else
+						<option value="TO">Tocantins</option>
+					@endif
+				</select>
 			</div>
 			<div class="form-group">
 				<label for="EMAIL">Email</label>
@@ -103,15 +238,23 @@
 			</div>
 			<div class="form-group">
 				<label for="COMPROVANTE">Comprovante</label>
-				<input type="text" name="COMPROVANTE" class="form-control"
-					   value="{{ $academia->COMPROVANTE }}"
-					   placeholder="Comprovante...">
+				<input type="file" name="COMPROVANTE"
+					   class="form-control">
+				@if(($academia->imagem)!="")
+					<img src="{{asset('imagens/elencos/'.$academia->COMPROVANTE)}}" width="200px">
+				@endif
 			</div>
 			<div class="form-group">
 				<label for="PAGO">Pago</label>
-				<input type="text" name="PAGO" class="form-control"
-					   value="{{ $academia->PAGO }}"
-					   placeholder="Pago...">
+				<select name="PAGO" class="form-control" required>
+					@if($academia->PAGO == "s")
+						<option value="s" selected>Sim</option>
+						<option value="n">Não</option>
+					@else
+						<option value="s" >Sim</option>
+						<option value="n" selected>Não</option>
+					@endif
+				</select>
 			</div>
 			<div class="form-group">
 				<label for="CPF">Cpf</label>
@@ -130,8 +273,8 @@
             	<button class="btn btn-danger" type="reset">Cancelar</button>
             </div>
 
-			{!!Form::close()!!}		
-            
+			{!!Form::close()!!}
+
 		</div>
 	</div>
 @stop

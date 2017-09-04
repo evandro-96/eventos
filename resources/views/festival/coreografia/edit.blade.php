@@ -48,25 +48,120 @@
 
 				<div class="col-lg-6 col-sm-6 col-xs-12">
 					<div class="form-group">
-						<label>Classificação</label>
+						<label>Modalidade</label>
 						<select name="classificacao" class="form-control">
-							<option value="Competição">Competição</option>
-							<option value="Mostra Avaliada">Mostra Avaliada</option>
-							<option value="Ambas">Ambas</option>
+							@if($coreografia->classificacao == "Competição")
+								<option value="Competição" selected>Competição</option>
+								<option value="Mostra Avaliada">Mostra Avaliada</option>
+								<option value="Ambas">Ambas</option>
+							@elseif($coreografia->classificacao == "Mostra Avaliada")
+								<option value="Competição">Competição</option>
+								<option value="Mostra Avaliada" selected>Mostra Avaliada</option>
+								<option value="Ambas">Ambas</option>
+							@else
+								<option value="Competição">Competição</option>
+								<option value="Mostra Avaliada">Mostra Avaliada</option>
+								<option value="Ambas" selected>Ambas</option>
+							@endif
 						</select>
 					</div>
 				</div>
 
 				<div class="col-lg-6 col-sm-6 col-xs-12">
 					<div class="form-group">
-						<label>Modalidade</label>
+						<label>Gênero</label>
 						<select name="modalidade" class="form-control">
-							<option value="Ballet Clássico/Neoclássico">Ballet Clássico/Neoclássico</option>
-							<option value="Dança Moderna/Contemporânea">Dança Moderna/Contemporânea</option>
-							<option value="Ballet Clássico de Repertório">Ballet Clássico de Repertório</option>
-							<option value="Dança Livre">Dança Livre</option>
-							<option value="Jazz">Jazz</option>
-							<option value="Folclore de Projeção">Folclore de Projeção</option>
+							@if($coreografia->modalidade == "Ballet Clássico/Neoclássico")
+								<option value="Ballet Clássico/Neoclássico" selected>Ballet Clássico/Neoclássico</option>
+								<option value="Dança Moderna/Contemporânea">Dança Moderna/Contemporânea</option>
+								<option value="Ballet Clássico de Repertório">Ballet Clássico de Repertório</option>
+								<option value="Dança Livre">Dança Livre</option>
+								<option value="Jazz">Jazz</option>
+								<option value="Folclore de Projeção">Folclore de Projeção</option>
+								<option value="Folclore de Imigração">Folclore de Imigração</option>
+								<option value="Danças Urbanas">Danças Urbanas</option>
+								<option value="Danças de Salão">Danças de Salão</option>
+							@elseif($coreografia->modalidade == "Dança Moderna/Contemporânea")
+								<option value="Ballet Clássico/Neoclássico">Ballet Clássico/Neoclássico</option>
+								<option value="Dança Moderna/Contemporânea" selected>Dança Moderna/Contemporânea</option>
+								<option value="Ballet Clássico de Repertório">Ballet Clássico de Repertório</option>
+								<option value="Dança Livre">Dança Livre</option>
+								<option value="Jazz">Jazz</option>
+								<option value="Folclore de Projeção">Folclore de Projeção</option>
+								<option value="Folclore de Imigração">Folclore de Imigração</option>
+								<option value="Danças Urbanas">Danças Urbanas</option>
+								<option value="Danças de Salão">Danças de Salão</option>
+							@elseif($coreografia->modalidade == "Ballet Clássico de Repertório")
+								<option value="Ballet Clássico/Neoclássico">Ballet Clássico/Neoclássico</option>
+								<option value="Dança Moderna/Contemporânea">Dança Moderna/Contemporânea</option>
+								<option value="Ballet Clássico de Repertório" selected>Ballet Clássico de Repertório</option>
+								<option value="Dança Livre">Dança Livre</option>
+								<option value="Jazz">Jazz</option>
+								<option value="Folclore de Projeção">Folclore de Projeção</option>
+								<option value="Folclore de Imigração">Folclore de Imigração</option>
+								<option value="Danças Urbanas">Danças Urbanas</option>
+								<option value="Danças de Salão">Danças de Salão</option>
+							@elseif($coreografia->modalidade == "Dança Livre")
+								<option value="Ballet Clássico/Neoclássico">Ballet Clássico/Neoclássico</option>
+								<option value="Dança Moderna/Contemporânea">Dança Moderna/Contemporânea</option>
+								<option value="Ballet Clássico de Repertório">Ballet Clássico de Repertório</option>
+								<option value="Dança Livre" selected>Dança Livre</option>
+								<option value="Jazz">Jazz</option>
+								<option value="Folclore de Projeção">Folclore de Projeção</option>
+								<option value="Folclore de Imigração">Folclore de Imigração</option>
+								<option value="Danças Urbanas">Danças Urbanas</option>
+								<option value="Danças de Salão">Danças de Salão</option>
+							@elseif($coreografia->modalidade == "Jazz")
+								<option value="Ballet Clássico/Neoclássico">Ballet Clássico/Neoclássico</option>
+								<option value="Dança Moderna/Contemporânea">Dança Moderna/Contemporânea</option>
+								<option value="Ballet Clássico de Repertório">Ballet Clássico de Repertório</option>
+								<option value="Dança Livre">Dança Livre</option>
+								<option value="Jazz" selected>Jazz</option>
+								<option value="Folclore de Projeção">Folclore de Projeção</option>
+								<option value="Folclore de Imigração">Folclore de Imigração</option>
+								<option value="Danças Urbanas">Danças Urbanas</option>
+								<option value="Danças de Salão">Danças de Salão</option>
+							@elseif($coreografia->modalidade == "Folclore de Projeção")
+								<option value="Ballet Clássico/Neoclássico">Ballet Clássico/Neoclássico</option>
+								<option value="Dança Moderna/Contemporânea">Dança Moderna/Contemporânea</option>
+								<option value="Ballet Clássico de Repertório">Ballet Clássico de Repertório</option>
+								<option value="Dança Livre">Dança Livre</option>
+								<option value="Jazz">Jazz</option>
+								<option value="Folclore de Projeção" selected>Folclore de Projeção</option>
+								<option value="Folclore de Imigração">Folclore de Imigração</option>
+								<option value="Danças Urbanas">Danças Urbanas</option>
+								<option value="Danças de Salão">Danças de Salão</option>
+							@elseif($coreografia->modalidade == "Folclore de Imigração")
+								<option value="Ballet Clássico/Neoclássico">Ballet Clássico/Neoclássico</option>
+								<option value="Dança Moderna/Contemporânea">Dança Moderna/Contemporânea</option>
+								<option value="Ballet Clássico de Repertório">Ballet Clássico de Repertório</option>
+								<option value="Dança Livre">Dança Livre</option>
+								<option value="Jazz">Jazz</option>
+								<option value="Folclore de Projeção">Folclore de Projeção</option>
+								<option value="Folclore de Imigração" selected>Folclore de Imigração</option>
+								<option value="Danças Urbanas">Danças Urbanas</option>
+								<option value="Folclore de Projeção">Danças de Salão</option>
+							@elseif($coreografia->modalidade == "Danças Urbanas")
+								<option value="Ballet Clássico/Neoclássico">Ballet Clássico/Neoclássico</option>
+								<option value="Dança Moderna/Contemporânea">Dança Moderna/Contemporânea</option>
+								<option value="Ballet Clássico de Repertório">Ballet Clássico de Repertório</option>
+								<option value="Dança Livre">Dança Livre</option>
+								<option value="Jazz">Jazz</option>
+								<option value="Folclore de Projeção">Folclore de Projeção</option>
+								<option value="Folclore de Imigração">Folclore de Imigração</option>
+								<option value="Danças Urbanas" selected>Danças Urbanas</option>
+								<option value="Danças de Salão">Danças de Salão</option>
+							@elseif($coreografia->modalidade == "Danças de Salão")
+								<option value="Ballet Clássico/Neoclássico">Ballet Clássico/Neoclássico</option>
+								<option value="Dança Moderna/Contemporânea">Dança Moderna/Contemporânea</option>
+								<option value="Ballet Clássico de Repertório">Ballet Clássico de Repertório</option>
+								<option value="Dança Livre">Dança Livre</option>
+								<option value="Jazz">Jazz</option>
+								<option value="Folclore de Projeção">Folclore de Projeção</option>
+								<option value="Folclore de Imigração">Folclore de Imigração</option>
+								<option value="Danças Urbanas">Danças Urbanas</option>
+								<option value="Danças de Salão" selected>Danças de Salão</option>
+							@endif
 						</select>
 					</div>
 				</div>
@@ -75,10 +170,27 @@
 					<div class="form-group">
 						<label>Categoria</label>
 						<select name="categoria" class="form-control">
-							<option value="Infantil">Infantil</option>
-							<option value="Juvenil">Juvenil</option>
-							<option value="Juvenil Avançado">Juvenil Avançado</option>
-							<option value="Adulto">Adulto</option>
+							@if($coreografia->categoria == "Infantil")
+								<option value="Infantil" selected>Infantil</option>
+								<option value="Juvenil">Juvenil</option>
+								<option value="Juvenil Avançado">Juvenil Avançado</option>
+								<option value="Adulto">Adulto</option>
+							@elseif($coreografia->categoria == "Juvenil")
+								<option value="Infantil">Infantil</option>
+								<option value="Juvenil" selected>Juvenil</option>
+								<option value="Juvenil Avançado">Juvenil Avançado</option>
+								<option value="Adulto">Adulto</option>
+							@elseif($coreografia->categoria == "Juvenil Avançado")
+								<option value="Infantil">Infantil</option>
+								<option value="Juvenil">Juvenil</option>
+								<option value="Juvenil Avançado" selected>Juvenil Avançado</option>
+								<option value="Adulto">Adulto</option>
+							@else
+								<option value="Infantil">Infantil</option>
+								<option value="Juvenil">Juvenil</option>
+								<option value="Juvenil Avançado">Juvenil Avançado</option>
+								<option value="Adulto" selected>Adulto</option>
+							@endif
 						</select>
 					</div>
 				</div>
@@ -94,10 +206,27 @@
 					<div class="form-group">
 						<label>Participação</label>
 						<select name="participacao" class="form-control">
-							<option value="SOLO">Solo</option>
-							<option value="DUO">Duo</option>
-							<option value="TRIO">Trio</option>
-							<option value="GRUPO/CONJUNTO">Grupo/Conjunto</option>
+							@if($coreografia->participacao == "SOLO")
+								<option value="SOLO" selected>Solo</option>
+								<option value="DUO">Duo</option>
+								<option value="TRIO">Trio</option>
+								<option value="CONJUNTO">Conjunto</option>
+							@elseif($coreografia->participacao == "DUO")
+								<option value="SOLO">Solo</option>
+								<option value="DUO" selected>Duo</option>
+								<option value="TRIO">Trio</option>
+								<option value="CONJUNTO">Conjunto</option>
+							@elseif($coreografia->participacao == "TRIO")
+								<option value="SOLO">Solo</option>
+								<option value="DUO">Duo</option>
+								<option value="TRIO" selected>Trio</option>
+								<option value="CONJUNTO">Conjunto</option>
+							@else
+								<option value="SOLO">Solo</option>
+								<option value="DUO">Duo</option>
+								<option value="TRIO">Trio</option>
+								<option value="CONJUNTO" selected>Conjunto</option>
+							@endif
 						</select>
 					</div>
 				</div>
@@ -137,9 +266,14 @@
 				<div class="col-lg-6 col-sm-6 col-xs-12">
 					<div class="form-group">
 						<label>Confirmada</label>
-						<select name="confirmada" class="form-control">
-							<option value="NÃO">Não</option>
-							<option value="SIM">Sim</option>
+						<select name="confirmada" class="form-control" >
+							@if($coreografia->confirmada == "NÃO")
+								<option value="Não" selected>Não</option>
+								<option value="Sim">Sim</option>
+							@else
+								<option value="Não">Não</option>
+								<option value="Sim" selected>Sim</option>
+							@endif
 						</select>
 					</div>
 				</div>
@@ -150,6 +284,12 @@
 							   onkeypress="mascaraData(this)" class="form-control" placeholder="Data Apresentação...">
 					</div>
 				</div>
+				{{--<div class="col-lg-6 col-sm-12 col-xs-12">--}}
+					{{--<div class="form-group">--}}
+						{{--<label for="resumo">Release</label>--}}
+						{{--<input type="text" name="resumo"  value="{{$coreografia->resumo}}" class="form-control" placeholder="Duração...">--}}
+					{{--</div>--}}
+				{{--</div>--}}
 			</div>
 
 
@@ -176,12 +316,24 @@
 						<tr>
 							<td>{{ $corEle->ID}}</td>
 							<td>{{ $corEle->elenco['NOME']}}</td>
-							<td>{{ $corEle->elenco['DT_NASCIMENTO']}}</td>
+							@if((Carbon\Carbon::parse($corEle->elenco['DT_NASCIMENTO'])->age) >= '4' and (Carbon\Carbon::parse($corEle->elenco['DT_NASCIMENTO'])->age)<= '10')
+								<td>Infantil</td>
+							@elseif((Carbon\Carbon::parse($corEle->elenco['DT_NASCIMENTO'])->age) >= '11' and (Carbon\Carbon::parse($corEle->elenco['DT_NASCIMENTO'])->age)<= '14')
+								<td>Juvenil</td>
+							@elseif((Carbon\Carbon::parse($corEle->elenco['DT_NASCIMENTO'])->age) >= '15' and (Carbon\Carbon::parse($corEle->elenco['DT_NASCIMENTO'])->age)<= '17')
+								<td>Juvenil Avançado</td>
+							@else
+								<td>Adulto</td>
+							@endif
+							{{--<td>{{Carbon\Carbon::parse($corEle->elenco['DT_NASCIMENTO'])->age}}</td>--}}
+							{{--{{dump($corEle)}}--}}
 							<td>
 								<a href="{{URL::action('CoreografiaController@destroyCoreografiaElenco',$corEle->ID)}}" ><button class="btn btn-danger">Excluir</button></a>
 							</td>
+
 						</tr>
 						@endif
+
 					@include('festival.coreografia.modalCoreografiaElenco')
 					@endforeach
 			</table>
@@ -259,6 +411,11 @@
             val.value = val.value.substring(0, 10);
         return true;
     }
+
+
 </script>
+
+
+
 
 @stop
