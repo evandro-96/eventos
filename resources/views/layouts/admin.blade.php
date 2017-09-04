@@ -100,7 +100,7 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="{{ route('avaliacao.avaliar') }}"><i class="fa fa-circle-o"></i> Avaliar </a></li>
-                <li><a href=""><i class="fa fa-circle-o"></i> </a></li>
+                <li><a href="{{ route('avaliacao.lista') }}"><i class="fa fa-circle-o"></i> Coreografias </a></li>
               </ul>
             </li>
                        

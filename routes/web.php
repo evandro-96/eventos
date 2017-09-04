@@ -24,4 +24,5 @@ Route::get('festival/coreografia{id}', 'CoreografiaController@destroyCoreografia
 Route::group(['prefix' => 'avaliacao'], function () {
     Route::get('avaliar', 'JuradosController@avaliacao')->name('avaliacao.avaliar');
     Route::post('avaliar/salvar', 'JuradosController@avaliacaoSalvar')->name('avaliacao.salvar');
+    Route::get('lista', 'JuradosController@index')->name('avaliacao.lista');
 });

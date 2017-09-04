@@ -9,6 +9,11 @@ use sistemaLaravel\Jurado;
 
 class JuradosController extends Controller
 {
+    public function index()
+    {
+        return view('festival.avaliacao.listagem_avaliacoes');
+    }
+
     public function avaliacao()
     {
         $jurados = Jurado::all()->pluck('id', 'nome');
