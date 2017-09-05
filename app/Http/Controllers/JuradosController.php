@@ -3,6 +3,7 @@
 namespace sistemaLaravel\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use sistemaLaravel\Coreografia;
 use sistemaLaravel\CoreografiaJurado;
 use sistemaLaravel\Jurado;
@@ -11,7 +12,25 @@ class JuradosController extends Controller
 {
     public function index()
     {
-        return view('festival.avaliacao.listagem_avaliacoes');
+
+        $modalidades = DB::table('festival_coreografia')->select('modalidade')->distinct()->get()->toArray();
+        $categorias = DB::table('festival_coreografia')->select('categoria')->distinct()->get()->toArray();
+        $participacaos = DB::table('festival_coreografia')->select('participacao')->distinct()->get()->toArray();
+
+        return view('festival.avaliacao.categoria', compact('modalidades', 'categorias', 'participacaos'));
+    }
+
+    public function gerarRelatorio(Request $request)
+    {
+        dump($request);
+        $query = DB::table('festival_coreografia_jurados')
+            ->join('festival_coreografia', 'festival_coreografia_jurados.id_inscricao', '=', 'festival_coreografia.id_inscricao')
+            ->select('nomecoreografia', 'modalidade', 'id_academia', 'id_jurado', 'categoria', 'participacao')
+            ->where('modalidade', $request->modalidade)->where('categoria', $request->categoria)
+            ->where('participacao', $request->participacao)->get();
+
+            dump($query);
+
     }
 
     public function avaliacao()
@@ -25,7 +44,9 @@ class JuradosController extends Controller
 
     public function avaliacaoSalvar(Request $request)
     {
-        dump($request);
+//        dump($request);
+        CoreografiaJurado::where('id_jurado', $request->jurado)->delete();
+
         $coreografiaJurado = new CoreografiaJurado();
         $coreografiaJurado->id_jurado = $request->jurado;
         $coreografiaJurado->id_inscricao = $request->jurado;
