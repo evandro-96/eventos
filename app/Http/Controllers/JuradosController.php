@@ -4,6 +4,7 @@ namespace sistemaLaravel\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use sistemaLaravel\Academia;
 use sistemaLaravel\Coreografia;
 use sistemaLaravel\CoreografiaJurado;
 use sistemaLaravel\Jurado;
@@ -22,14 +23,34 @@ class JuradosController extends Controller
 
     public function gerarRelatorio(Request $request)
     {
-        dump($request);
+//        dump($request);
+
         $query = DB::table('festival_coreografia_jurados')
             ->join('festival_coreografia', 'festival_coreografia_jurados.id_inscricao', '=', 'festival_coreografia.id_inscricao')
-            ->select('nomecoreografia', 'modalidade', 'id_academia', 'id_jurado', 'categoria', 'participacao')
+            ->select('festival_coreografia.id_inscricao', 'nomecoreografia', 'modalidade', 'id_academia',
+                'id_jurado', 'categoria', 'participacao',
+                'nota_01', 'nota_02', 'nota_03', 'nota_04', 'nota_05', 'nota_06')
             ->where('modalidade', $request->modalidade)->where('categoria', $request->categoria)
-            ->where('participacao', $request->participacao)->get();
+            ->where('participacao', $request->participacao)->orderBy('id_inscricao')->get();
+        dump($query);
+        $notas = [];
+        foreach ($query as $index => $e) {
+            // ver se o id de inscrição ja esta inserido senao adiciona ele
+            if (!array_key_exists($e->id_inscricao, $notas)) {
+                $academia = Academia::find($e->id_academia)->ACADEMIA;
+                $notas[$e->id_inscricao]['academia'] = $academia;
+                $notas[$e->id_inscricao]['coreografia'] = $e->nomecoreografia;
+                $notas[$e->id_inscricao]['modalidade'] = $e->modalidade;
+                $notas[$e->id_inscricao]['categoria'] = $e->categoria;
+                $notas[$e->id_inscricao]['participacao'] = $e->participacao;
+            }
+            $soma = $e->nota_01 + $e->nota_02 + $e->nota_03 + $e->nota_04 + $e->nota_05 + $e->nota_06;
+            dump($soma);
+            $notas[$e->id_inscricao][$e->id_jurado] = $soma;
 
-            dump($query);
+        }
+
+        dump($notas);
 
     }
 
