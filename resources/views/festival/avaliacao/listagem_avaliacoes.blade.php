@@ -1,61 +1,105 @@
-@extends('layouts.admin')
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sistema Festival de dança</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{{asset('css/font-awesome.css')}}">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{{asset('css/AdminLTE.min.css')}}">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="{{asset('css/_all-skins.min.css')}}">
+    <link rel="danceicon" href="{{asset('img/danceicon.png')}}">
+    <link rel="shortcut icon" href="{{asset('img/danceicon.ico')}}">
+    <![endif]-->
 
-@section('links')
-    <link rel="stylesheet" href="{{ asset('bower_components/datatables/media/css/dataTables.bootstrap.min.css') }}">
-@endsection
-
-@section('conteudo')
-    {{ dump($coreografias) }}
-    <div class="box">
-        <div class="box-header">
-            <h3 class="box-title">Data Table With Full Features</h3>
+    <!-- Google Font -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+</head>
+<body onload="window.print();">
+<div class="wrapper">
+    <!-- Main content -->
+    <section class="invoice">
+        <!-- title row -->
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="page-header">
+                    Modalidade : {{ $modalidade }}<br>
+                    Categoria : {{ $categoria }}<br>
+                    Participacao : {{ $participacao }}
+                </h2>
+            </div>
+            <!-- /.col -->
         </div>
-        <!-- /.box-header -->
-        <div class="box-body">
-            <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                    <th>Jurado</th>
-                    <th>Coreografia</th>
-                    <th>Tipo</th>
-                    <th>Notas</th>
-                    <th>Comentários</th>
-                    {{--<th>Ações</th>--}}
-                </tr>
-                </thead>
-                <tbody>
-                    @foreach($coreografias as $coreografia)
+
+        <!-- Table row -->
+        <div class="row">
+            <div class="col-xs-12 table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Academia</th>
+                        <th>Notas</th>
+                        <th>Colocação</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($notas as $index => $nota)
                         <tr>
-                            <td>{{ $coreografia->jurado->nome }}</td>
-                            <td>{{ $coreografia->coreografia->nomecoreografia }}</td>
-                            <td>{{ $coreografia->tipo }}</td>
-                            <td>{{ $coreografia->nota_01 }}</td>
-                            <td>{{ $coreografia->comentario }}</td>
+                            <td>{{ $nota['id_inscricao'] }}</td>
+                            <td>
+                                <b>Academia: </b>{{ $nota['academia'] }} <br>
+                                <b>Coreografia: </b>{{ $nota['coreografia'] }} <br>
+                                {{ $nota['modalidade'] }} , {{ $nota['categoria'] }} , {{  $nota['participacao'] }}<br>
+                            </td>
+                            <td>
+                                @if(isset($nota['1']))
+                                    {{$nota['1'][0]->nome}}:  {{$nota['1'][1]}}<br>
+                                @endif
+
+                                @if(isset($nota['2']))
+                                    {{$nota['2'][0]->nome}}:  {{$nota['2'][1]}}<br>
+                                @endif
+
+                                @if(isset($nota['3']))
+                                    {{$nota['3'][0]->nome}}:  {{$nota['3'][1]}}<br>
+
+                                @endif
+
+                                @if(isset($nota['4']))
+                                    {{$nota['4'][0]->nome}}:  {{$nota['4'][1]}}<br>
+
+                                @endif
+
+                                @if(isset($nota['5']))
+                                    {{$nota['5'][0]->nome}}:  {{$nota['5'][1]}}<br>
+
+                                @endif
+
+                                @if(isset($nota['6']))
+                                    {{$nota['6'][0]->nome}}:  {{$nota['6'][1]}}<br>
+                                @endif
+                                <b>Nota Final: {{ round($nota['total'], 1) }}</b>
+                            </td>
+                            <td>{{ $index + 1 }}</td>
                         </tr>
                     @endforeach
-                </tbody>
-                {{--<tfoot>--}}
-                {{--<tr>--}}
-                    {{--<th>Rendering engine</th>--}}
-                    {{--<th>Browser</th>--}}
-                    {{--<th>Platform(s)</th>--}}
-                    {{--<th>Engine version</th>--}}
-                    {{--<th>CSS grade</th>--}}
-                {{--</tr>--}}
-                {{--</tfoot>--}}
-            </table>
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.col -->
         </div>
-    </div>
-
-@endsection
-
-@section('scripts')
-    <script src="{{ asset('bower_components/datatables/media/js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('bower_components/datatables/media/js/dataTables.bootstrap.min.js') }}"></script>
-
-    <script>
-        $(function () {
-            $('#example1').DataTable()
-        })
-    </script>
-@endsection
+    </section>
+    <!-- /.content -->
+</div>
+<!-- ./wrapper -->
+</body>
+</html>
