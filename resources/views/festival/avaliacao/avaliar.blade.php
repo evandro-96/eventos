@@ -34,7 +34,7 @@
                 <div class="form-group col-lg-6 col-md-12 col-sm-12">
                     <label for="tipo">Tipo</label>
                     <select name="tipo" class="form-control" id="tipo">
-                        <option value="1">Ballet Clássico/Neoclássico</option>
+                        <option value="1">Ballet Clássico de Repertório</option>
                         <option value="2">Geral</option>
                         <option value="3">Mostra Avaliada</option>
                     </select>
