@@ -89,7 +89,7 @@
                                 @endif
                                 <b>Nota Final: {{ round($nota['total'], 1) }}</b>
                             </td>
-                            <td>{{ $index + 1 }}</td>
+                            <td>{{ $index + 1 }}º</td>
                         </tr>
                     @endforeach
                     </tbody>
