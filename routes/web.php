@@ -26,4 +26,5 @@ Route::group(['prefix' => 'avaliacao'], function () {
     Route::post('avaliar/salvar', 'JuradosController@avaliacaoSalvar')->name('avaliacao.salvar');
     Route::get('lista', 'JuradosController@index')->name('avaliacao.lista');
     Route::post('lista/relatorio', 'JuradosController@gerarRelatorio')->name('avaliacao.lista.relatorio');
+    Route::get('lista/classificacao_geral', 'JuradosController@relatorioGeral')->name('avaliacao.lista.classificacao.geral');
 });
