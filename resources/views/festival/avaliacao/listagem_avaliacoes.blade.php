@@ -52,7 +52,11 @@
                     </tr>
                     </thead>
                     <tbody>
+                    <?php
+                    $colocacao = 0;
+                    ?>
                     @foreach($notas as $index => $nota)
+
                         <tr>
                             <td>{{ $nota['id_inscricao'] }}</td>
                             <td>
@@ -89,7 +93,8 @@
                                 @endif
                                 <b>Nota Final: {{ round($nota['total'], 1) }}</b>
                             </td>
-                            <td>{{ $index + 1 }}º</td>
+                            <td>{{ sizeof($notas) - $colocacao}}º</td>
+                            <?php $colocacao++ ?>
                         </tr>
                     @endforeach
                     </tbody>

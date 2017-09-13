@@ -33,6 +33,7 @@ class JuradosController extends Controller
             ->where('modalidade', $request->modalidade)->where('categoria', $request->categoria)
             ->where('participacao', $request->participacao)->orderBy('id_inscricao')->get();
 
+        // array que é passada com dados para a view
         $notas = [];
         foreach ($query as $index => $e) {
             // ver se o id de inscrição ja esta inserido senao adiciona ele
@@ -58,12 +59,13 @@ class JuradosController extends Controller
             unset($aux[array_search(min($aux), $aux)]);
             $notas[$index]['total'] = array_sum($aux) / 3;
         }
-//        dump($notas);
-        $notas = array_reverse(array_values(array_sort($notas, function ($value) {
-            return $value['total'];
-        })));
 
 //        dump($notas);
+        $notas = array_values(array_sort($notas, function ($value) {
+            return $value['total'];
+        }));
+
+//        dump(sizeof($notas));
 
         $modalidade = $request->modalidade;
         $categoria = $request->categoria;
@@ -83,7 +85,7 @@ class JuradosController extends Controller
         return view('festival.avaliacao.avaliar', compact('jurados', 'coreografia'));
     }
 
-    public function relatorioGeral()
+    public function  relatorioGeral()
     {
 
         $aux = [];
