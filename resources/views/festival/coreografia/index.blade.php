@@ -15,8 +15,8 @@
 					<th>Id</th>
 					<th>Nome coreografia</th>
 					<th>Academia</th>
-					<th>Classificação</th>
 					<th>Modalidade</th>
+					<th>Gênero</th>
 					<th>Categoria</th>
 					<th>Duração</th>
 					<th>Participação</th>

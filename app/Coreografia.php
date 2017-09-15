@@ -30,6 +30,7 @@ class Coreografia extends Model
     'horaensaio',
     'horaapresentacao',
     'sequencia',
+    'resumo',
     'seq_modalidade',
     'seq_participacao',
     'parecer1',

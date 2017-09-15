@@ -62,6 +62,7 @@ class CoreografiaController extends Controller
         $coreografia->confirmada=$request->get('confirmada');
         $coreografia->horaapresentacao=$request->get('horaapresentacao');
         $coreografia->dataapresentacao= Carbon::create($data[2], $data[1], $data[0]);
+        $coreografia->resumo=$request->get('resumo');
         $coreografia->save();
     	return Redirect::to('festival/coreografia');
     }
@@ -99,6 +100,8 @@ class CoreografiaController extends Controller
         $coreografia->link_youtube=$request->get('link_youtube');
         $coreografia->confirmada=$request->get('confirmada');
         $coreografia->dataapresentacao= Carbon::create($data[2], $data[1], $data[0]);
+        $coreografia->resumo=$request->get('resumo');
+//        dump($coreografia);
         $coreografia->update();
     	return Redirect::to('festival/coreografia');
     }

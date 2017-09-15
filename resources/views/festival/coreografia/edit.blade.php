@@ -48,7 +48,7 @@
 
 				<div class="col-lg-6 col-sm-6 col-xs-12">
 					<div class="form-group">
-						<label>Classificação</label>
+						<label>Modalidade</label>
 						<select name="classificacao" class="form-control">
 							@if($coreografia->classificacao == "Competição")
 								<option value="Competição" selected>Competição</option>
@@ -69,7 +69,7 @@
 
 				<div class="col-lg-6 col-sm-6 col-xs-12">
 					<div class="form-group">
-						<label>Modalidade</label>
+						<label>Gênero</label>
 						<select name="modalidade" class="form-control">
 							@if($coreografia->modalidade == "Ballet Clássico/Neoclássico")
 								<option value="Ballet Clássico/Neoclássico" selected>Ballet Clássico/Neoclássico</option>
@@ -210,22 +210,22 @@
 								<option value="SOLO" selected>Solo</option>
 								<option value="DUO">Duo</option>
 								<option value="TRIO">Trio</option>
-								<option value="GRUPO/CONJUNTO">Grupo/Conjunto</option>
+								<option value="CONJUNTO">Conjunto</option>
 							@elseif($coreografia->participacao == "DUO")
 								<option value="SOLO">Solo</option>
 								<option value="DUO" selected>Duo</option>
 								<option value="TRIO">Trio</option>
-								<option value="GRUPO/CONJUNTO">Grupo/Conjunto</option>
+								<option value="CONJUNTO">Conjunto</option>
 							@elseif($coreografia->participacao == "TRIO")
 								<option value="SOLO">Solo</option>
 								<option value="DUO">Duo</option>
 								<option value="TRIO" selected>Trio</option>
-								<option value="GRUPO/CONJUNTO">Grupo/Conjunto</option>
+								<option value="CONJUNTO">Conjunto</option>
 							@else
 								<option value="SOLO">Solo</option>
 								<option value="DUO">Duo</option>
 								<option value="TRIO">Trio</option>
-								<option value="GRUPO/CONJUNTO" selected>Grupo/Conjunto</option>
+								<option value="CONJUNTO" selected>Conjunto</option>
 							@endif
 						</select>
 					</div>
@@ -284,6 +284,12 @@
 							   onkeypress="mascaraData(this)" class="form-control" placeholder="Data Apresentação...">
 					</div>
 				</div>
+				<div class="col-lg-6 col-sm-12 col-xs-12">
+					<div class="form-group">
+						<label for="resumo">Release</label>
+						<textarea name="comentarios" id="" cols="30" rows="10" class="form-control">{{$coreografia->resumo}}</textarea>
+					</div>
+				</div>
 			</div>
 
 
@@ -310,7 +316,7 @@
 						<tr>
 							<td>{{ $corEle->ID}}</td>
 							<td>{{ $corEle->elenco['NOME']}}</td>
-							@if((Carbon\Carbon::parse($corEle->elenco['DT_NASCIMENTO'])->age) >= '7' and (Carbon\Carbon::parse($corEle->elenco['DT_NASCIMENTO'])->age)<= '10')
+							@if((Carbon\Carbon::parse($corEle->elenco['DT_NASCIMENTO'])->age) >= '4' and (Carbon\Carbon::parse($corEle->elenco['DT_NASCIMENTO'])->age)<= '10')
 								<td>Infantil</td>
 							@elseif((Carbon\Carbon::parse($corEle->elenco['DT_NASCIMENTO'])->age) >= '11' and (Carbon\Carbon::parse($corEle->elenco['DT_NASCIMENTO'])->age)<= '14')
 								<td>Juvenil</td>
@@ -319,6 +325,8 @@
 							@else
 								<td>Adulto</td>
 							@endif
+							{{--<td>{{Carbon\Carbon::parse($corEle->elenco['DT_NASCIMENTO'])->age}}</td>--}}
+							{{--{{dump($corEle)}}--}}
 							<td>
 								<a href="{{URL::action('CoreografiaController@destroyCoreografiaElenco',$corEle->ID)}}" ><button class="btn btn-danger">Excluir</button></a>
 							</td>
